@@ -1,0 +1,10 @@
+{
+  "meta.title": "Remote Sync",
+
+  "settings.edit": "Edit",
+  "settings.finish-editing": "Save",
+  "settings.no-current-value": "No current value",
+
+  "settingName.settingLoading": "Loading"
+
+}
