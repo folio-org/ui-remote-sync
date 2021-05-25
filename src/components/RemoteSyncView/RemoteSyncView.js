@@ -51,13 +51,7 @@ export default function RemoteSyncView({ filterData }) {
       }
       <Pane
         defaultWidth="fill"
-        renderHeader={() => <Header
-          searchTerm={searchTerm}
-          setSearchTerm={onSearchChange}
-          showFilter={showFilter}
-          toggleFilterPane={toggleFilterPane}
-        />
-        }
+        renderHeader={() => <Header searchTerm={searchTerm} setSearchTerm={onSearchChange} showFilter={showFilter} toggleFilterPane={toggleFilterPane} /> }
       >
         <RemoteSyncSummary/>
       </Pane>
