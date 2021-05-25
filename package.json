@@ -83,7 +83,8 @@
     "prop-types": "^15.6.0",
     "query-string": "^6.6.0",
     "react-final-form": "^6.3.0",
-    "react-final-form-arrays": "^3.1.1"
+    "react-final-form-arrays": "^3.1.1",
+    "react-xarrows": "1.7.0"
   },
   "peerDependencies": {
     "@folio/stripes": ">6.0.0",

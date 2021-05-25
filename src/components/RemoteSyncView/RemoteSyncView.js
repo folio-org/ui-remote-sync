@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
+
 import {
   Pane,
   PaneMenu,
@@ -14,6 +15,7 @@ import { FormattedMessage } from 'react-intl';
 
 import Header from './HeaderComponents';
 import RemoteSyncFilters from '../RemoteSyncFilters';
+import RemoteSyncSummary from './RemoteSyncSummary';
 
 const propTypes = {
   filterData: PropTypes.shape({
@@ -57,7 +59,7 @@ export default function RemoteSyncView({ filterData }) {
         />
         }
       >
-        <p> This is where the remote-sync app will go </p>
+        <RemoteSyncSummary/>
       </Pane>
     </Paneset>
   );
