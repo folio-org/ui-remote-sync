@@ -5,6 +5,7 @@ import { Settings } from '@folio/stripes/smart-components';
 import { stripesConnect } from '@folio/stripes/core';
 
 import SettingPage from './SettingPage';
+import DefinitionsPage from './DefinitionsPage';
 
 import snakeToCamel from '../util/snakeToCamel';
 
@@ -48,7 +49,7 @@ class ResourceSharingSettings extends React.Component {
       {
         route: 'Definitions',
         label: 'definitions',
-        component: (props) => <p>Hello</p>
+        component: (props) => <DefinitionsPage sectionName="Definitions" />
       }
     ];
 
