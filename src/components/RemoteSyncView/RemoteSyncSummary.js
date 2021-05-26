@@ -17,6 +17,7 @@ const animationStyle = {
   animation: 1
 }
 
+// See https://github.com/folio-org/ui-dashboard/blob/master/src/routes/DashboardRoute.js#L26-L34
 
 export default function RemoteSyncSummary({}) {
 
