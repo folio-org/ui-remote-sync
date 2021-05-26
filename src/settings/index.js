@@ -48,7 +48,7 @@ class ResourceSharingSettings extends React.Component {
       {
         route: 'Definitions',
         label: 'definitions',
-        component: <p>Hello</p>
+        component: (props) => <p>Hello</p>
       }
     ];
 
@@ -76,10 +76,7 @@ class ResourceSharingSettings extends React.Component {
     // apparently unnecessary check prevents that.
     if (pageList.length === 0) return null;
 
-    return <p>
-       Settings follow:
-       <Settings paneTitle={<FormattedMessage id="ui-remote-sync.meta.title" />} {...this.props} pages={pageList} />
-    </p>
+    return <Settings paneTitle={<FormattedMessage id="ui-remote-sync.meta.title" />} {...this.props} pages={pageList} />
   }
 }
 
