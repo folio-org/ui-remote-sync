@@ -36,7 +36,7 @@ class App extends React.Component {
     }
 
     const remote_sync_header = <ButtonGroup fullWidth>
-                                 <Button id="clickable-remote-sync-summary" to={path} >
+                                 <Button id="clickable-remote-sync-summary" to={path} buttonStyle="primary">
                                    <FormattedMessage id="ui-remote-sync.summary" />
                                  </Button>
                                  <Button id="clickable-remote-sync-tasks" to={path} >
