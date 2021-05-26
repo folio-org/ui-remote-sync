@@ -12,7 +12,8 @@ const propTypes = {
 const boxStyle = {
     border: "grey solid 2px",
     borderRadius: "10px",
-    padding: "5px",
+    padding: "10px",
+    margin: "25px"
 };
 
 const animationStyle = {
@@ -39,23 +40,25 @@ export default function RemoteSyncSummary({}) {
     <Grid fluid>
       <Row between="xs">
         <Col>
-          Sources
+          <h2>Sources</h2>
         </Col>
         <Col>
-          Extract
+          <h2>Extract</h2>
         </Col>
         <Col>
-          Transform
+          <h2>Transform</h2>
         </Col>
         <Col>
-          Load
+          <h2>Load</h2>
         </Col>
       </Row>
 
       <Row between="xs">
         <Col>
           <div id="test_source_one" style={boxStyle}>
-            Source one
+            <h3>Source one</h3>
+            Some info about source one<br/> 
+            PLAY | PAUSE | OTHER
           </div>
         </Col>
 
@@ -71,9 +74,15 @@ export default function RemoteSyncSummary({}) {
         </Col>
 
         <Col>
+          <div id="test_transform_one" style={boxStyle}>
+            Transform
+          </div>
         </Col>
 
         <Col>
+          <div id="test_load_one" style={boxStyle}>
+            Load
+          </div>
         </Col>
 
       </Row>
@@ -98,9 +107,11 @@ export default function RemoteSyncSummary({}) {
         </Col>
       </Row>
 
-      <Xarrow start="test_source_one" end="test_extract_one" color="green" headSize={3} dashness={animationStyle} />
-      <Xarrow start="test_source_one" end="test_extract_two" color="green" headSize={3} dashness={animationStyle} />
-      <Xarrow start="test_source_two" end="test_extract_three" color="green" headSize={3} dashness={animationStyle} />
+      <Xarrow start="test_source_one"    end="test_extract_one" color="green" headSize={3} dashness={animationStyle} />
+      <Xarrow start="test_source_one"    end="test_extract_two" color="green" headSize={3} dashness={animationStyle} />
+      <Xarrow start="test_source_two"    end="test_extract_three" color="green" headSize={3} dashness={animationStyle} />
+      <Xarrow start="test_extract_two"   end="test_transform_one" color="green" headSize={3} dashness={animationStyle} />
+      <Xarrow start="test_transform_one" end="test_load_one" color="green" headSize={3} dashness={animationStyle} />
 
     </Grid>
   );
