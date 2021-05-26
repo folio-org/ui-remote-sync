@@ -7,12 +7,12 @@ import {
   List,
   Pane,
 } from '@folio/stripes/components';
+
 import { FormattedMessage } from 'react-intl';
 
+export default function DefinitionsPage({}) {
 
-class DefinitionsPage extends React.Component {
-
-  getLastMenu = () => {
+  const getLastMenu = () => {
     return (
       <Button
         buttonStyle="primary"
@@ -25,32 +25,27 @@ class DefinitionsPage extends React.Component {
     );
   }
 
-  handleSubmit = (event) => {
+  const handleSubmit = (event) => {
     console.log("submit");
     event.preventDefault()
   }
 
+  const formStyle = {
+    width: "100%"
+  };
 
-  render() {
 
-    const formStyle = {
-      width: "100%"
-    };
-
-    return (
-      <form id="remote-sync-settings-definitions-form" onSubmit={this.handleSubmit} style={formStyle}>
-        <Pane
-          defaultWidth="fill"
-          fluidContentWidth
-          id="pane-remote-sync-definitions"
-          lastMenu={this.getLastMenu()}
-          paneTitle="Definitions"
-        >
-          URL of definitions page: <input type="text" name="definitionsURL"/>
-        </Pane>
-      </form>
-    );
-  }
+  return (
+    <form id="remote-sync-settings-definitions-form" onSubmit={handleSubmit} style={formStyle}>
+      <Pane
+        defaultWidth="fill"
+        fluidContentWidth
+        id="pane-remote-sync-definitions"
+        lastMenu={getLastMenu()}
+        paneTitle="Definitions"
+      >
+        URL of definitions page: <input type="text" name="definitionsURL"/>
+      </Pane>
+    </form>
+  );
 }
-
-export default DefinitionsPage;
