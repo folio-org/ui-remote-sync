@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Grid, Row, Col } from '@folio/stripes/components';
 import Xarrow from "react-xarrows";
+import { useOkapiKy } from '@folio/stripes/core';
+import { useQuery, useMutation } from 'react-query';
 
 const propTypes = {
 };
@@ -21,31 +23,43 @@ const animationStyle = {
 
 export default function RemoteSyncSummary({}) {
 
+  const ky = useOkapiKy();
+
+  const { data: { 0: summary } = [], isLoading: summaryLoading, refetch: refetchSummary } = useQuery(
+    ['ui-remote-sync', 'summary'],
+    async () => {
+      // Actually wait for the data to come back.
+      const sync_status_report = await ky("remote-sync/statusReport").json();
+      console.log("Got status report %o",sync_status_report);
+      return sync_status_report;
+    }
+  );
+
   return (
     <Grid fluid>
       <Row between="xs">
-        <Col xs="2">
+        <Col>
           Sources
         </Col>
-        <Col xs="2">
+        <Col>
           Extract
         </Col>
-        <Col xs="2">
+        <Col>
           Transform
         </Col>
-        <Col xs="2">
+        <Col>
           Load
         </Col>
       </Row>
 
       <Row between="xs">
-        <Col xs="2">
+        <Col>
           <div id="test_source_one" style={boxStyle}>
             Source one
           </div>
         </Col>
 
-        <Col xs="2">
+        <Col>
 
           <div id="test_extract_one" style={boxStyle}>
             Extract one
@@ -56,30 +70,31 @@ export default function RemoteSyncSummary({}) {
           </div>
         </Col>
 
-        <Col xs="2"/>
+        <Col>
+        </Col>
 
-        <Col xs="2">
+        <Col>
         </Col>
 
       </Row>
 
       <Row between="xs">
-        <Col xs="2">
+        <Col>
           <div id="test_source_two" style={boxStyle}>
             Source Two
           </div>
         </Col>
 
-        <Col xs="2">
+        <Col>
           <div id="test_extract_three" style={boxStyle}>
             Extract Two
           </div>
         </Col>
 
-        <Col xs="2">
+        <Col>
         </Col>
 
-        <Col xs="2">
+        <Col>
         </Col>
       </Row>
 
