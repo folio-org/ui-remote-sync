@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import {
   Button,
@@ -14,6 +14,7 @@ import { useOkapiKy } from '@folio/stripes/core';
 export default function DefinitionsPage({}) {
 
   const ky = useOkapiKy();
+  const [definitionsUrl, setDefinitionsURL] = useState();
 
   // https://github.com/sindresorhus/ky
   // const json = await ky.post('https://example.com', {json: {foo: true}}).json();
@@ -33,16 +34,14 @@ export default function DefinitionsPage({}) {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    console.log("submit2");
-    let config_call = async () => {
-      console.log("Post....");
-      const json = await ky.post('remote-sync/settings/configureFromRegister', 
-                                 {json: {url: 'nothing'}}).json();
-                                 // {json: {url: 'https://raw.githubusercontent.com/folio-org/mod-remote-sync/master/testdata/laser_registry.json'}}).json();
+    console.log("submit2 %s", definitionsUrl);
+    let config_call = async (url_to_submit) => {
+      console.log("Post to....%s",url_to_submit);
+      const json = await ky.post('remote-sync/settings/configureFromRegister', {json: {url: url_to_submit}}).json();
       return json
     }
 
-    config_call().then(console.log)
+    config_call(definitionsUrl).then(console.log)
   }
 
   const formStyle = {
@@ -59,7 +58,7 @@ export default function DefinitionsPage({}) {
         lastMenu={getLastMenu()}
         paneTitle="Definitions"
       >
-        URL of definitions page: <input type="text" name="definitionsURL"/>
+        URL of definitions page: <input type="text" name="definitionsURL" onChange={e => setDefinitionsURL(e.target.value)} />
       </Pane>
     </form>
   );

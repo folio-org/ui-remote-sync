@@ -26,7 +26,8 @@ export default function RemoteSyncSummary({}) {
 
   const ky = useOkapiKy();
 
-  const { data: { 0: summary } = [], isLoading: summaryLoading, refetch: refetchSummary } = useQuery(
+  // const { data: { 0: summary } = [], isLoading: summaryLoading, refetch: refetchSummary } = useQuery(
+  const { data, isLoading, refetch } = useQuery(
     ['ui-remote-sync', 'summary'],
     async () => {
       // Actually wait for the data to come back.
@@ -35,6 +36,24 @@ export default function RemoteSyncSummary({}) {
       return sync_status_report;
     }
   );
+
+  console.log("data: %o",data);
+
+  let grid_rows = []
+
+  
+  if ( data != null ) {
+    console.log("Mapping data...");
+    grid_rows = data.map( datarow => {
+      console.log("Adding row %o",datarow);
+      return (<Row between="xs">
+          <Col><div style={boxStyle}>col: {datarow.sourceName}</div></Col>
+        </Row>)
+    })
+  }
+  else {
+    console.log("No data...");
+  }
 
   return (
     <Grid fluid>
@@ -52,6 +71,8 @@ export default function RemoteSyncSummary({}) {
           <h2>Load</h2>
         </Col>
       </Row>
+
+      {grid_rows}
 
       <Row between="xs">
         <Col>

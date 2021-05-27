@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { stripesConnect } from '@folio/stripes/core';
-
 import { EditableSettingsList } from './settingsComponents';
+
 
 class SettingPage extends React.Component {
   static manifest = Object.freeze({
