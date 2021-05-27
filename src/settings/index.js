@@ -53,6 +53,8 @@ class ResourceSharingSettings extends React.Component {
       }
     ];
 
+    console.log("Sections: %o",sections);
+
     const dynamic = sections.map(section => {
       const sectionFormatted = snakeToCamel(section);
       return (
@@ -65,6 +67,9 @@ class ResourceSharingSettings extends React.Component {
     });
 
     const settingPageList = persistent.concat(dynamic).sort(sortByLabelCaseInsensitive);
+
+    console.log("Dynamic:%o, settingPageList:%o",dynamic,settingPageList);
+
     return settingPageList;
   }
 
