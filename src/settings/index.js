@@ -5,6 +5,7 @@ import { Settings } from '@folio/stripes/smart-components';
 import { stripesConnect } from '@folio/stripes/core';
 
 import SettingPage from './SettingPage';
+import DefinitionsPage from './DefinitionsPage';
 
 import snakeToCamel from '../util/snakeToCamel';
 
@@ -18,7 +19,7 @@ class ResourceSharingSettings extends React.Component {
   static manifest = Object.freeze({
     settings: {
       type: 'okapi',
-      path: 'remoteSync/settings/appSettings',
+      path: 'remote-sync/settings/appSettings',
       params: {
         max: '500',
       },
@@ -39,21 +40,20 @@ class ResourceSharingSettings extends React.Component {
     }).isRequired,
   };
 
-  persistentPages = [
-  ];
-
   pageList() {
     const { intl } = this.props;
     const rows = (this.props.resources.settings || {}).records || [];
     const sections = Array.from(new Set(rows.map(obj => obj.section)));
-    if (sections.length === 0) return [];
 
-    const persistent = this.persistentPages.map(page => ({
-      route: page.route,
-      label: intl.formatMessage({ id: `ui-remote-sync.settingsSection.${page.id}` }),
-      component: page.component,
-      perm: page.perm,
-    }));
+    const persistent = [
+      {
+        route: 'Definitions',
+        label: 'definitions',
+        component: (props) => <DefinitionsPage sectionName="Definitions" />
+      }
+    ];
+
+    console.log("Sections: %o",sections);
 
     const dynamic = sections.map(section => {
       const sectionFormatted = snakeToCamel(section);
@@ -67,6 +67,9 @@ class ResourceSharingSettings extends React.Component {
     });
 
     const settingPageList = persistent.concat(dynamic).sort(sortByLabelCaseInsensitive);
+
+    console.log("Dynamic:%o, settingPageList:%o",dynamic,settingPageList);
+
     return settingPageList;
   }
 
@@ -79,11 +82,7 @@ class ResourceSharingSettings extends React.Component {
     // apparently unnecessary check prevents that.
     if (pageList.length === 0) return null;
 
-    return <Settings
-      paneTitle={<FormattedMessage id="ui-remote-sync.meta.title" />}
-      {...this.props}
-      pages={pageList}
-    />;
+    return <Settings paneTitle={<FormattedMessage id="ui-remote-sync.meta.title" />} {...this.props} pages={pageList} />
   }
 }
 

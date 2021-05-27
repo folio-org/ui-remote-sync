@@ -5,5 +5,8 @@
   "settings.finish-editing": "Save",
   "settings.no-current-value": "No current value",
 
-  "settingName.settingLoading": "Loading"
+  "settingName.settingLoading": "Loading",
+
+  "ui-remote-sync.summary": "Summary",
+  "ui-remote-sync.tasks": "Tasks"
 }
