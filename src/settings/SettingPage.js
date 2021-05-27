@@ -49,6 +49,8 @@ class SettingPage extends React.Component {
   render() {
     const { sectionName } = this.props;
 
+    console.log("SettingPage... %s",sectionName);
+
     // We grab the rows and check for a valid filter
 
     const rows = (this.props.resources.settings ? this.props.resources.settings.records : []);
