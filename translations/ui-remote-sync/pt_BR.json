@@ -1,7 +1,9 @@
 {
-    "meta.title": "Remote Sync",
-    "settings.edit": "Edit",
-    "settings.finish-editing": "Save",
-    "settings.no-current-value": "No current value",
-    "settingName.settingLoading": "Loading"
+    "meta.title": "Sincronização Remota",
+    "settings.edit": "Editar",
+    "settings.finish-editing": "Salvar",
+    "settings.no-current-value": "Nenhum valor atual",
+    "settingName.settingLoading": "Carregando",
+    "ui-remote-sync.summary": "Sumário",
+    "ui-remote-sync.tasks": "Tarefas"
 }
