@@ -4,6 +4,7 @@ import { Grid, Row, Col } from '@folio/stripes/components';
 import Xarrow from "react-xarrows";
 import { useOkapiKy } from '@folio/stripes/core';
 import { useQuery, useMutation } from 'react-query';
+import { Button } from '@folio/stripes/components';
 
 const propTypes = {
 };
@@ -37,104 +38,86 @@ export default function RemoteSyncSummary({}) {
     }
   );
 
-  console.log("data: %o",data);
+  const triggerSync = () => {
+    console.log("triggerSync");
+    let trigger_worker_get = async () => {
+      const json = await ky.get('remote-sync/settings/worker').json();
+      return json
+    }
+
+    trigger_worker_get().then(console.log)
+  }
 
   let grid_rows = []
+  let arrows =[]
 
   
   if ( data != null ) {
-    console.log("Mapping data...");
     grid_rows = data.map( datarow => {
-      console.log("Adding row %o",datarow);
-      return (<Row between="xs">
-          <Col><div style={boxStyle}>col: {datarow.sourceName}</div></Col>
+
+      // Pull out the extractors
+      let extractors = null;
+      if ( datarow.extractors != null ) {
+        extractors = datarow.extractors.map ( extractor => {
+          return (
+            <div id={extractor.id} style={boxStyle}>
+              <h3>{extractor.name}</h3> ( {extractor.status} )
+            </div>
+          ) 
+        })
+      }
+
+      let processes = null;
+      if ( datarow.processes != null ) {
+        processes = datarow.processes.map ( process => {
+          return (
+            <div id={process.id} style={boxStyle}>
+              <h3>{process.name}</h3>
+            </div>
+          )
+        })
+      }
+
+      return (<Row key={'dr:'+datarow.id} between="xs">
+          <Col>
+            <div id={datarow.id} style={boxStyle}>
+              <h3>{datarow.sourceName} ({datarow.status})</h3>
+              enabled: {datarow.enabled ? 'true' : 'false' } <br/>
+              Record Count: {datarow.recordCount} <br/>
+              Some info about source one<br/>
+              PLAY | PAUSE | OTHER
+            </div>
+          </Col>
+          <Col>{extractors}</Col>
+          <Col>{processes}</Col>
+          <Col></Col>
         </Row>)
     })
+
+    // Collect arrows
+    data.forEach ( ds => {
+      ds.extractors.forEach ( ext => {
+        arrows.push( <Xarrow key={ds.id+':'+ext.id} start={ds.id} end={ext.id} color="green" headSize={3} dashness={animationStyle} /> )
+      } )
+      ds.processes.forEach ( proc => {
+        // console.log("process process arrow %o",proc);
+      })
+    })
+
+    
   }
   else {
     console.log("No data...");
   }
 
   return (
-    <Grid fluid>
-      <Row between="xs">
-        <Col>
-          <h2>Sources</h2>
-        </Col>
-        <Col>
-          <h2>Extract</h2>
-        </Col>
-        <Col>
-          <h2>Transform</h2>
-        </Col>
-        <Col>
-          <h2>Load</h2>
-        </Col>
-      </Row>
-
-      {grid_rows}
-
-      <Row between="xs">
-        <Col>
-          <div id="test_source_one" style={boxStyle}>
-            <h3>Source one</h3>
-            Some info about source one<br/> 
-            PLAY | PAUSE | OTHER
-          </div>
-        </Col>
-
-        <Col>
-
-          <div id="test_extract_one" style={boxStyle}>
-            Extract one
-          </div>
-
-          <div id="test_extract_two" style={boxStyle}>
-            Extract two
-          </div>
-        </Col>
-
-        <Col>
-          <div id="test_transform_one" style={boxStyle}>
-            Transform
-          </div>
-        </Col>
-
-        <Col>
-          <div id="test_load_one" style={boxStyle}>
-            Load
-          </div>
-        </Col>
-
-      </Row>
-
-      <Row between="xs">
-        <Col>
-          <div id="test_source_two" style={boxStyle}>
-            Source Two
-          </div>
-        </Col>
-
-        <Col>
-          <div id="test_extract_three" style={boxStyle}>
-            Extract Two
-          </div>
-        </Col>
-
-        <Col>
-        </Col>
-
-        <Col>
-        </Col>
-      </Row>
-
-      <Xarrow start="test_source_one"    end="test_extract_one" color="green" headSize={3} dashness={animationStyle} />
-      <Xarrow start="test_source_one"    end="test_extract_two" color="green" headSize={3} dashness={animationStyle} />
-      <Xarrow start="test_source_two"    end="test_extract_three" color="green" headSize={3} dashness={animationStyle} />
-      <Xarrow start="test_extract_two"   end="test_transform_one" color="green" headSize={3} dashness={animationStyle} />
-      <Xarrow start="test_transform_one" end="test_load_one" color="green" headSize={3} dashness={animationStyle} />
-
-    </Grid>
+    <div>
+      <Button onClick={() => triggerSync()}>Trigger Sync</Button>
+      <Grid fluid>
+        {grid_rows}
+        {arrows}
+      </Grid>
+    </div>
   );
 }
 

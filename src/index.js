@@ -47,7 +47,8 @@ class App extends React.Component {
     return (
       <Suspense fallback={null}>
         <Paneset>
-          <Pane defaultWidth="fill" renderHeader={() => remote_sync_header } >
+          <Pane defaultWidth="fill" 
+                renderHeader={() => remote_sync_header } >
             <Switch>
               <Route component={RemoteSyncSummary} path={`${path}`} />
             </Switch>

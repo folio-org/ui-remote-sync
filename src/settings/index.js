@@ -50,20 +50,28 @@ class ResourceSharingSettings extends React.Component {
         route: 'Definitions',
         label: 'definitions',
         component: (props) => <DefinitionsPage sectionName="Definitions" />
-      }
+      },
+      {
+        route: 'Definitions2',
+        label: 'definitions2',
+        component: (props) => <DefinitionsPage sectionName="Definitions" />
+      },
     ];
 
     console.log("Sections: %o",sections);
 
     const dynamic = sections.map(section => {
       const sectionFormatted = snakeToCamel(section);
+      console.log("Add section %s/%s",section,sectionFormatted);
       return (
         {
           route: sectionFormatted,
-          label: intl.formatMessage({ id: `ui-remote-sync.settingsSection.${sectionFormatted}` }),
-          component: (props) => <SettingPage sectionName={section} {...props} />,
+          label: sectionFormatted,
+          component: (props) => (
+            <SettingPage sectionName={section} {...props} />
+          )
         }
-      );
+      )
     });
 
     const settingPageList = persistent.concat(dynamic).sort(sortByLabelCaseInsensitive);
