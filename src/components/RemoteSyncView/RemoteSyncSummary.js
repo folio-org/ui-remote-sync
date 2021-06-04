@@ -4,6 +4,7 @@ import { Grid, Row, Col } from '@folio/stripes/components';
 import Xarrow from "react-xarrows";
 import { useOkapiKy } from '@folio/stripes/core';
 import { useQuery, useMutation } from 'react-query';
+import { Button } from '@folio/stripes/components';
 
 const propTypes = {
 };
@@ -36,6 +37,16 @@ export default function RemoteSyncSummary({}) {
       return sync_status_report;
     }
   );
+
+  const triggerSync = () => {
+    console.log("triggerSync");
+    let trigger_worker_get = async () => {
+      const json = await ky.get('remote-sync/settings/worker').json();
+      return json
+    }
+
+    trigger_worker_get().then(console.log)
+  }
 
   let grid_rows = []
   let arrows =[]
@@ -70,8 +81,9 @@ export default function RemoteSyncSummary({}) {
       return (<Row key={'dr:'+datarow.id} between="xs">
           <Col>
             <div id={datarow.id} style={boxStyle}>
-              <h3>{datarow.sourceName}</h3>
+              <h3>{datarow.sourceName} ({datarow.status})</h3>
               enabled: {datarow.enabled ? 'true' : 'false' } <br/>
+              Record Count: {datarow.recordCount} <br/>
               Some info about source one<br/>
               PLAY | PAUSE | OTHER
             </div>
@@ -99,10 +111,13 @@ export default function RemoteSyncSummary({}) {
   }
 
   return (
-    <Grid fluid>
-      {grid_rows}
-      {arrows}
-    </Grid>
+    <div>
+      <Button onClick={() => triggerSync()}>Trigger Sync</Button>
+      <Grid fluid>
+        {grid_rows}
+        {arrows}
+      </Grid>
+    </div>
   );
 }
 

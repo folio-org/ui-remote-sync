@@ -50,7 +50,12 @@ class ResourceSharingSettings extends React.Component {
         route: 'Definitions',
         label: 'definitions',
         component: (props) => <DefinitionsPage sectionName="Definitions" />
-      }
+      },
+      {
+        route: 'Definitions2',
+        label: 'definitions2',
+        component: (props) => <DefinitionsPage sectionName="Definitions" />
+      },
     ];
 
     console.log("Sections: %o",sections);
@@ -62,11 +67,11 @@ class ResourceSharingSettings extends React.Component {
         {
           route: sectionFormatted,
           label: sectionFormatted,
-          component: (props) => ( <div><h1>test</h1><SettingPagePane sectionName={section}>
-              <SettingPage sectionName={section} {...props} />
-            </SettingPagePane></div> )
+          component: (props) => (
+            <SettingPage sectionName={section} {...props} />
+          )
         }
-      );
+      )
     });
 
     const settingPageList = persistent.concat(dynamic).sort(sortByLabelCaseInsensitive);
