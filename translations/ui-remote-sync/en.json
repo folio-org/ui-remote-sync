@@ -7,6 +7,7 @@
 
   "settingName.settingLoading": "Loading",
 
-  "ui-remote-sync.summary": "Summary",
-  "ui-remote-sync.tasks": "Tasks"
+  "remote-sync.summary": "Summary",
+  "remote-sync.tasks": "Feedback Needed",
+  "remote-sync.feedback": "Feedback Supplied"
 }

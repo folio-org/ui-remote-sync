@@ -3,6 +3,7 @@ import { Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 const Settings = lazy(() => import('./settings'));
 const RemoteSyncSummary = lazy(() => import('./components/RemoteSyncView/RemoteSyncSummary'));
+const ToDos = lazy(() => import('./components/ToDos/ToDos'));
 import { FormattedMessage } from 'react-intl';
 
 import {
@@ -25,10 +26,13 @@ class App extends React.Component {
     actAs: PropTypes.string.isRequired,
     match: PropTypes.object.isRequired,
     stripes: PropTypes.object.isRequired,
+    location: PropTypes.shape({
+      pathname: PropTypes.string
+    }),
   }
 
   render() {
-    const { actAs, match: { path } } = this.props;
+    const { actAs, match: { path }, location: { pathname } } = this.props;
 
     if (actAs === 'settings') {
       return (
@@ -39,11 +43,14 @@ class App extends React.Component {
     }
 
     const remote_sync_header = <ButtonGroup fullWidth>
-                                 <Button id="clickable-remote-sync-summary" to={path} buttonStyle="primary">
-                                   <FormattedMessage id="ui-remote-sync.summary" />
+                                 <Button id="clickable-remote-sync-summary" to={path} buttonStyle={ pathname==`${path}` ? 'primary' : '' } >
+                                   <FormattedMessage id="ui-remote-sync.remote-sync.summary" />
                                  </Button>
-                                 <Button id="clickable-remote-sync-tasks" to={path} >
-                                   <FormattedMessage id="ui-remote-sync.tasks" />
+                                 <Button id="clickable-remote-sync-tasks" to={`${path}/todos`} buttonStyle={ pathname==`${path}/todos` ? 'primary' : '' } >
+                                   <FormattedMessage id="ui-remote-sync.remote-sync.tasks" />
+                                 </Button>
+                                 <Button id="clickable-remote-sync-tasks" to={`${path}/feedback`} buttonStyle={ pathname==`${path}/feedback` ? 'primary' : '' } >
+                                   <FormattedMessage id="ui-remote-sync.remote-sync.feedback" />
                                  </Button>
                                </ButtonGroup>
 
@@ -57,6 +64,12 @@ class App extends React.Component {
               <NavListItem to="/remote-sync" onClick={handleToggle}>
                 Remote Sync
               </NavListItem>
+              <NavListItem to="/remote-sync/todos" onClick={handleToggle}>
+                <FormattedMessage id="ui-remote-sync.remote-sync.tasks" />
+              </NavListItem>
+              <NavListItem to="/remote-sync/feedback" onClick={handleToggle}>
+                <FormattedMessage id="ui-remote-sync.remote-sync.feedback" />
+              </NavListItem>
               <NavListItem onClick={() => { shortcutModalToggle(handleToggle); }}>
                 Keyboard Shortcuts
               </NavListItem>
@@ -66,9 +79,10 @@ class App extends React.Component {
         </AppContextMenu>
 
         <Paneset>
-          <Pane defaultWidth="fill" 
-                renderHeader={() => remote_sync_header } >
+          <Pane defaultWidth="fill" renderHeader={() => remote_sync_header } >
             <Switch>
+              <Route component={ToDos} path={`${path}/feedback`} />
+              <Route component={ToDos} path={`${path}/todos`} />
               <Route component={RemoteSyncSummary} path={`${path}`} />
             </Switch>
           </Pane>
