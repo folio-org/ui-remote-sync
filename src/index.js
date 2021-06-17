@@ -1,21 +1,24 @@
 import React, { lazy, Suspense } from 'react';
 import { Switch } from 'react-router-dom';
-import { Route } from '@folio/stripes/core';
 import PropTypes from 'prop-types';
-
 const Settings = lazy(() => import('./settings'));
 const RemoteSyncSummary = lazy(() => import('./components/RemoteSyncView/RemoteSyncSummary'));
-import {
-  Button,
-  ButtonGroup
-} from '@folio/stripes/components';
 import { FormattedMessage } from 'react-intl';
 
 import {
   Pane,
   PaneMenu,
   Paneset,
+  Button,
+  ButtonGroup,
+  NavList,    
+  NavListSection,
+  NavListItem
 } from '@folio/stripes/components';
+
+import { Route, 
+         AppContextMenu 
+} from '@folio/stripes/core';
 
 class App extends React.Component {
   static propTypes = {
@@ -46,6 +49,22 @@ class App extends React.Component {
 
     return (
       <Suspense fallback={null}>
+
+        <AppContextMenu>
+        {(handleToggle) => (
+          <NavList>
+            <NavListSection>
+              <NavListItem to="/remote-sync" onClick={handleToggle}>
+                Remote Sync
+              </NavListItem>
+              <NavListItem onClick={() => { shortcutModalToggle(handleToggle); }}>
+                Keyboard Shortcuts
+              </NavListItem>
+            </NavListSection>
+          </NavList>
+        )}
+        </AppContextMenu>
+
         <Paneset>
           <Pane defaultWidth="fill" 
                 renderHeader={() => remote_sync_header } >
