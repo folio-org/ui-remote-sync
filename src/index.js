@@ -10,7 +10,10 @@ import {
   PaneMenu,
   Paneset,
   Button,
-  ButtonGroup
+  ButtonGroup,
+  NavList,    
+  NavListSection,
+  NavListItem
 } from '@folio/stripes/components';
 
 import { Route, 
@@ -51,7 +54,7 @@ class App extends React.Component {
         {(handleToggle) => (
           <NavList>
             <NavListSection>
-              <NavListItem to={packageInfo.stripes.home} onClick={handleToggle}>
+              <NavListItem to="/remote-sync" onClick={handleToggle}>
                 Remote Sync
               </NavListItem>
               <NavListItem onClick={() => { shortcutModalToggle(handleToggle); }}>
