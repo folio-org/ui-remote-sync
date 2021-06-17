@@ -4,6 +4,7 @@
     "settings.finish-editing": "保存",
     "settings.no-current-value": "无当前值",
     "settingName.settingLoading": "加载中",
-    "ui-remote-sync.summary": "摘要",
-    "ui-remote-sync.tasks": "任务"
+    "remote-sync.summary": "Summary",
+    "remote-sync.tasks": "Feedback Needed",
+    "remote-sync.feedback": "Feedback Supplied"
 }
