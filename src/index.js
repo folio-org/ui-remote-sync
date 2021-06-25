@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 const Settings = lazy(() => import('./settings'));
 const RemoteSyncSummary = lazy(() => import('./components/RemoteSyncView/RemoteSyncSummary'));
 const ToDos = lazy(() => import('./components/ToDos/ToDos'));
+const Feedback = lazy(() => import('./components/Feedback/Feedback'));
 const Resources = lazy(() => import('./components/Resources/Resources'));
 import { FormattedMessage } from 'react-intl';
 
@@ -100,7 +101,7 @@ class App extends React.Component {
 
             <Switch>
               <Route component={Resources} path={`${path}/resources`} />
-              <Route component={ToDos} path={`${path}/feedback`} />
+              <Route component={Feedback} path={`${path}/feedback`} />
               <Route component={ToDos} path={`${path}/todos`} />
               <Route component={RemoteSyncSummary} path={`${path}`} />
             </Switch>
