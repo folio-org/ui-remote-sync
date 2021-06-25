@@ -62,7 +62,9 @@ export default function SimpleLookupSASQ({context, target, result_columns, detai
 
   const DetailsComponent = details;
 
-  const details_pane = ( ( showDetails==true ) && ( DetailsComponent != null ) ) ? <DetailsComponent/> : null;
+  const details_pane = ( ( showDetails==true ) && 
+                         ( DetailsComponent != null ) &&
+                         ( selectedRecord != null ) ) ? <DetailsComponent resource={selectedRecord} /> : null;
 
   return (
     <Paneset>

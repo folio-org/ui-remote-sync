@@ -6,13 +6,14 @@ import {
 
 
 const propTypes = {
+  resource: PropTypes.object,
 };
 
-export default function FeedbackItem({}) {
+export default function FeedbackItem({resource} : props) {
 
   return (
     <Pane>
-      <div>Feedback Item</div>
+      {JSON.stringify(resource)}
     </Pane>
   );
 }
