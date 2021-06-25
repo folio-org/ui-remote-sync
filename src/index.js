@@ -58,6 +58,19 @@ class App extends React.Component {
                                  </Button>
                                </ButtonGroup>
 
+
+    /*
+        <Paneset isRoot>
+          <Pane defaultWidth="fill" renderHeader={() => remote_sync_header } >
+            <Switch>
+              <Route component={Resources} path={`${path}/resources`} />
+              <Route component={ToDos} path={`${path}/feedback`} />
+              <Route component={ToDos} path={`${path}/todos`} />
+              <Route component={RemoteSyncSummary} path={`${path}`} />
+            </Switch>
+          </Pane>
+        </Paneset>
+    */
     return (
       <Suspense fallback={null}>
 
@@ -85,16 +98,12 @@ class App extends React.Component {
         )}
         </AppContextMenu>
 
-        <Paneset>
-          <Pane defaultWidth="fill" renderHeader={() => remote_sync_header } >
             <Switch>
               <Route component={Resources} path={`${path}/resources`} />
               <Route component={ToDos} path={`${path}/feedback`} />
               <Route component={ToDos} path={`${path}/todos`} />
               <Route component={RemoteSyncSummary} path={`${path}`} />
             </Switch>
-          </Pane>
-        </Paneset>
       </Suspense>
     );
   }
