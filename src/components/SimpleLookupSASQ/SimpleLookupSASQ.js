@@ -23,10 +23,10 @@ const propTypes = {
   context: PropTypes.array,
   target: PropTypes.string,
   result_columns: PropTypes.array,
-  details_factory: PropTypes.func,
+  details: PropTypes.func,
 };
 
-export default function SimpleLookupSASQ({context, target, result_columns, details_factory} : props) {
+export default function SimpleLookupSASQ({context, target, result_columns, details} : props) {
 
 
   const ky = useOkapiKy();
@@ -48,14 +48,21 @@ export default function SimpleLookupSASQ({context, target, result_columns, detai
     }
   );
 
+  const [showDetails, setShowDetails] = useState(false);
+  const [selectedRecord, setSelectedRecord] = useState({});
+
   const rowClickHandler = (event,item) => {
     console.log("select row %o",item);
+    setSelectedRecord(item)
+    setShowDetails(true)
   }
 
   const table_data= data ? data.results : []
   const total_records = data ? data.totalRecords : 0;
 
-  const show_details = false;
+  const DetailsComponent = details;
+
+  const details_pane = ( ( showDetails==true ) && ( DetailsComponent != null ) ) ? <DetailsComponent/> : null;
 
   return (
     <Paneset>
@@ -80,6 +87,8 @@ export default function SimpleLookupSASQ({context, target, result_columns, detai
           onRowClick={rowClickHandler}
         />
       </Pane>
+
+      {details_pane}
     </Paneset>
   );
 }
