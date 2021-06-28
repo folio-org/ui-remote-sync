@@ -7,7 +7,7 @@ import FeedbackItem from '../FeedbackItem/FeedbackItem';
 const propTypes = {
 };
 
-export default function ToDos({}) {
+export default function Feedback({}) {
 
   let result_columns = [
     { label: "id", propertyPath:"id" },
@@ -16,14 +16,13 @@ export default function ToDos({}) {
     { label: "response", propertyPath:"response" },
   ]
 
-  console.log("ToDos: %o",FeedbackItem);
-
   return (
     <SimpleLookupSASQ context={['ui-remote-sync', 'todos']}
-                      target="remote-sync/feedback/todo"
-                      result_columns={result_columns}
-                      details={FeedbackItem} />
+                      target="remote-sync/feedback/done"
+                      result_columns={result_columns} 
+                      details={FeedbackItem} 
+    />
   );
 }
 
-ToDos.propTypes = propTypes;
+Feedback.propTypes = propTypes;

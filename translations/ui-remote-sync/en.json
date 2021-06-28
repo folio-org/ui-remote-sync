@@ -8,6 +8,14 @@
   "settingName.settingLoading": "Loading",
 
   "remote-sync.summary": "Summary",
+  "remote-sync.resources": "Resources",
   "remote-sync.tasks": "Feedback Needed",
-  "remote-sync.feedback": "Feedback Supplied"
+  "remote-sync.feedback": "Feedback Supplied",
+
+  "ui-remote-sync.prop.feedback.id": "ID",
+  "ui-remote-sync.prop.feedback.correlationId": "Correlation Id",
+  "ui-remote-sync.prop.feedback.caseIndicator": "Case",
+  "ui-remote-sync.prop.feedback.status": "Status",
+  "ui-remote-sync.prop.feedback.description": "Description"
+
 }
