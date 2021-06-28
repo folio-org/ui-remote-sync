@@ -28,6 +28,8 @@ export default function FeedbackItem({resource} : props) {
   */
 
   let question = JSON.parse(resource.question)
+  let answer = resource.answer ? JSON.parse(resource.question) : {};
+
   let FeedbackComponent = null
 
   switch ( resource.caseIndicator ) {
@@ -44,7 +46,7 @@ export default function FeedbackItem({resource} : props) {
     <Pane>
       {JSON.stringify(resource)}
       <hr/>
-      <FeedbackComponent resource={resource} question={question} />
+      <FeedbackComponent resource={resource} question={question} answer={answer}/>
     </Pane>
   );
 }
