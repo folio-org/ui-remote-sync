@@ -6,5 +6,11 @@
     "settingName.settingLoading": "جاري التحميل",
     "remote-sync.summary": "ملخص",
     "remote-sync.tasks": "التغذية الراجعة مطلوبة",
-    "remote-sync.feedback": "تم توفير التغذية الراجعة"
+    "remote-sync.feedback": "تم توفير التغذية الراجعة",
+    "remote-sync.resources": "Resources",
+    "ui-remote-sync.prop.feedback.id": "ID",
+    "ui-remote-sync.prop.feedback.correlationId": "Correlation Id",
+    "ui-remote-sync.prop.feedback.caseIndicator": "Case",
+    "ui-remote-sync.prop.feedback.status": "Status",
+    "ui-remote-sync.prop.feedback.description": "Description"
 }

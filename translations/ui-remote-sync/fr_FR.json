@@ -6,5 +6,11 @@
     "settingName.settingLoading": "Chargement",
     "remote-sync.summary": "Résumé",
     "remote-sync.tasks": "Commentaires requis",
-    "remote-sync.feedback": "Commentaires fournis"
+    "remote-sync.feedback": "Commentaires fournis",
+    "remote-sync.resources": "Ressources",
+    "ui-remote-sync.prop.feedback.id": "ID",
+    "ui-remote-sync.prop.feedback.correlationId": "Identifiant de corrélation",
+    "ui-remote-sync.prop.feedback.caseIndicator": "Case",
+    "ui-remote-sync.prop.feedback.status": "Statut",
+    "ui-remote-sync.prop.feedback.description": "Description"
 }

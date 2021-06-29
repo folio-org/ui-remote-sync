@@ -6,5 +6,11 @@
     "settingName.settingLoading": "Carregando",
     "remote-sync.summary": "Sumário",
     "remote-sync.tasks": "Feedback necessário",
-    "remote-sync.feedback": "Feedback fornecido"
+    "remote-sync.feedback": "Feedback fornecido",
+    "remote-sync.resources": "Resources",
+    "ui-remote-sync.prop.feedback.id": "ID",
+    "ui-remote-sync.prop.feedback.correlationId": "Correlation Id",
+    "ui-remote-sync.prop.feedback.caseIndicator": "Case",
+    "ui-remote-sync.prop.feedback.status": "Status",
+    "ui-remote-sync.prop.feedback.description": "Description"
 }
