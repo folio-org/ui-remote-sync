@@ -98,10 +98,8 @@ export default function RemoteSyncSummary({}) {
     data.forEach ( ds => {
       ds.extractors.forEach ( ext => {
         arrows.push( <Xarrow key={ds.id+':'+ext.id} start={ds.id} end={ext.id} color="green" headSize={3} dashness={animationStyle} /> )
+        arrows.push( <Xarrow key={ext.id+':'+ext.target} start={ext.id} end={ext.target} color="green" headSize={3} dashness={animationStyle} /> )
       } )
-      ds.processes.forEach ( proc => {
-        // console.log("process process arrow %o",proc);
-      })
     })
 
     
