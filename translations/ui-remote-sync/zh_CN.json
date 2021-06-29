@@ -4,7 +4,13 @@
     "settings.finish-editing": "保存",
     "settings.no-current-value": "无当前值",
     "settingName.settingLoading": "加载中",
-    "remote-sync.summary": "Summary",
-    "remote-sync.tasks": "Feedback Needed",
-    "remote-sync.feedback": "Feedback Supplied"
+    "remote-sync.summary": "摘要",
+    "remote-sync.tasks": "需要反馈",
+    "remote-sync.feedback": "提供反馈",
+    "remote-sync.resources": "Resources",
+    "ui-remote-sync.prop.feedback.id": "ID",
+    "ui-remote-sync.prop.feedback.correlationId": "Correlation Id",
+    "ui-remote-sync.prop.feedback.caseIndicator": "Case",
+    "ui-remote-sync.prop.feedback.status": "Status",
+    "ui-remote-sync.prop.feedback.description": "Description"
 }
