@@ -60,7 +60,7 @@ export default function RemoteSyncSummary({}) {
       if ( datarow.extractors != null ) {
         extractors = datarow.extractors.map ( extractor => {
           return (
-            <div id={extractor.id} style={boxStyle}>
+            <div id={extractor.id} style={boxStyle} key={extractor.id}>
               <h3>{extractor.name}</h3> ( {extractor.status} )
             </div>
           ) 
@@ -71,8 +71,14 @@ export default function RemoteSyncSummary({}) {
       if ( datarow.processes != null ) {
         processes = datarow.processes.map ( process => {
           return (
-            <div id={process.id} style={boxStyle}>
+            <div id={process.id} style={boxStyle} key={process.id}>
               <h3>{process.name}</h3>
+              {
+                process.recordCounts.map ( rc => (
+                    <span key={rc[0]}>status: {rc[0]} : {rc[1]}</span>
+                  )
+                )
+              }
             </div>
           )
         })
