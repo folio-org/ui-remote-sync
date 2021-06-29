@@ -4,6 +4,7 @@
     "settings.finish-editing": "Sauvegarder",
     "settings.no-current-value": "Aucune valeur actuelle",
     "settingName.settingLoading": "Chargement",
-    "ui-remote-sync.summary": "Résumé",
-    "ui-remote-sync.tasks": "Tâches"
+    "remote-sync.summary": "Résumé",
+    "remote-sync.tasks": "Commentaires requis",
+    "remote-sync.feedback": "Commentaires fournis"
 }

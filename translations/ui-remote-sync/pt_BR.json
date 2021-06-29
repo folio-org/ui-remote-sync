@@ -4,6 +4,7 @@
     "settings.finish-editing": "Salvar",
     "settings.no-current-value": "Nenhum valor atual",
     "settingName.settingLoading": "Carregando",
-    "ui-remote-sync.summary": "Sumário",
-    "ui-remote-sync.tasks": "Tarefas"
+    "remote-sync.summary": "Sumário",
+    "remote-sync.tasks": "Feedback necessário",
+    "remote-sync.feedback": "Feedback fornecido"
 }

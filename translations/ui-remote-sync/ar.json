@@ -4,6 +4,7 @@
     "settings.finish-editing": "حفظ",
     "settings.no-current-value": "لا توجد قيمة حالية",
     "settingName.settingLoading": "جاري التحميل",
-    "ui-remote-sync.summary": "ملخص",
-    "ui-remote-sync.tasks": "مهام"
+    "remote-sync.summary": "ملخص",
+    "remote-sync.tasks": "التغذية الراجعة مطلوبة",
+    "remote-sync.feedback": "تم توفير التغذية الراجعة"
 }
