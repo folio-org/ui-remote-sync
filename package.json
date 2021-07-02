@@ -17,9 +17,11 @@
   "stripes": {
     "actsAs": [
       "app",
+      "handler",
       "settings"
     ],
     "displayName": "ui-remote-sync.meta.title",
+    "handlerName": "eventHandler",
     "route": "/remote-sync",
     "home": "/remote-sync",
     "hasSettings": true,
@@ -56,8 +58,8 @@
     "@bigtest/mocha": "^0.5.2",
     "@bigtest/react": "^0.1.2",
     "@folio/eslint-config-stripes": "^5.2.0",
-    "@folio/stripes": "^6.0.0",
-    "@folio/stripes-cli": "^1.8.0",
+    "@folio/stripes": "^6.2.0",
+    "@folio/stripes-cli": "^2.3.0",
     "babel-eslint": "^10.0.0",
     "babel-polyfill": "6.26.0",
     "chai": "^4.2.0",

@@ -7,7 +7,10 @@ const ToDos = lazy(() => import('./components/ToDos/ToDos'));
 const Feedback = lazy(() => import('./components/Feedback/Feedback'));
 const Resources = lazy(() => import('./components/Resources/Resources'));
 import { FormattedMessage } from 'react-intl';
-
+import { AppContextMenu, 
+         Route, 
+         coreEvents, 
+         HandlerManager } from '@folio/stripes/core';
 import {
   Pane,
   PaneMenu,
@@ -19,62 +22,19 @@ import {
   NavListItem
 } from '@folio/stripes/components';
 
-import { Route, 
-         AppContextMenu 
-} from '@folio/stripes/core';
 
-class App extends React.Component {
-  static propTypes = {
-    actAs: PropTypes.string.isRequired,
-    match: PropTypes.object.isRequired,
-    stripes: PropTypes.object.isRequired,
-    location: PropTypes.shape({
-      pathname: PropTypes.string
-    }),
+const App = (appProps) => {
+
+  const { actAs, history, match: { path }, location: { pathname } } = appProps;
+
+  if (actAs === 'settings') {
+    return (
+      <Settings {...appProps} />
+    );
   }
 
-  render() {
-    const { actAs, match: { path }, location: { pathname } } = this.props;
-
-    if (actAs === 'settings') {
-      return (
-        <Suspense fallback={null}>
-          <Settings {...this.props} />
-        </Suspense>
-      );
-    }
-
-    const remote_sync_header = <ButtonGroup fullWidth>
-                                 <Button id="clickable-remote-sync-summary" to={path} buttonStyle={ pathname==`${path}` ? 'primary' : '' } >
-                                   <FormattedMessage id="ui-remote-sync.remote-sync.summary" />
-                                 </Button>
-                                 <Button id="clickable-remote-sync-resources" to={`${path}/resources`} buttonStyle={ pathname==`${path}/resources` ? 'primary' : '' } >
-                                   <FormattedMessage id="ui-remote-sync.remote-sync.resources" />
-                                 </Button>
-                                 <Button id="clickable-remote-sync-tasks" to={`${path}/todos`} buttonStyle={ pathname==`${path}/todos` ? 'primary' : '' } >
-                                   <FormattedMessage id="ui-remote-sync.remote-sync.tasks" />
-                                 </Button>
-                                 <Button id="clickable-remote-sync-feedback" to={`${path}/feedback`} buttonStyle={ pathname==`${path}/feedback` ? 'primary' : '' } >
-                                   <FormattedMessage id="ui-remote-sync.remote-sync.feedback" />
-                                 </Button>
-                               </ButtonGroup>
-
-
-    /*
-        <Paneset isRoot>
-          <Pane defaultWidth="fill" renderHeader={() => remote_sync_header } >
-            <Switch>
-              <Route component={Resources} path={`${path}/resources`} />
-              <Route component={ToDos} path={`${path}/feedback`} />
-              <Route component={ToDos} path={`${path}/todos`} />
-              <Route component={RemoteSyncSummary} path={`${path}`} />
-            </Switch>
-          </Pane>
-        </Paneset>
-    */
-    return (
+  return (
       <Suspense fallback={null}>
-
         <AppContextMenu>
         {(handleToggle) => (
           <NavList>
@@ -106,8 +66,18 @@ class App extends React.Component {
               <Route component={RemoteSyncSummary} path={`${path}`} />
             </Switch>
       </Suspense>
-    );
-  }
+  );
 }
+
+let registryEventFired = false;
+App.eventHandler = (event, stripes, data) => {
+
+  if (event === coreEvents.LOGIN) {
+    console.log("EVENT HANDLER %o, %o, %o",event,stripes,data);
+  }
+
+  return null;
+};
+
 
 export default App;
