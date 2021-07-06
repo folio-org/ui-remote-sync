@@ -22,6 +22,9 @@ import {
   NavListItem
 } from '@folio/stripes/components';
 
+import Registry from './Registry';
+
+
 
 const App = (appProps) => {
 
@@ -69,15 +72,28 @@ const App = (appProps) => {
   );
 }
 
+
 let registryEventFired = false;
 App.eventHandler = (event, stripes, data) => {
+  console.log("EVENT HANDLER %o, %o, %o",event,stripes,data);
 
   if (event === coreEvents.LOGIN) {
-    console.log("EVENT HANDLER %o, %o, %o",event,stripes,data);
+    // Ensure event only fired once
+    if (registryEventFired === false) {
+      registryEventFired = true;
+      return () => (
+        <HandlerManager
+          data={Registry}
+          event="ui-dashboard-registry-load"
+          stripes={stripes}
+        />
+      );
+    }
   }
 
   return null;
 };
+
 
 
 export default App;
