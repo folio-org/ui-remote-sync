@@ -7,10 +7,10 @@
     "remote-sync.summary": "ملخص",
     "remote-sync.tasks": "التغذية الراجعة مطلوبة",
     "remote-sync.feedback": "تم توفير التغذية الراجعة",
-    "remote-sync.resources": "Resources",
-    "ui-remote-sync.prop.feedback.id": "ID",
-    "ui-remote-sync.prop.feedback.correlationId": "Correlation Id",
-    "ui-remote-sync.prop.feedback.caseIndicator": "Case",
-    "ui-remote-sync.prop.feedback.status": "Status",
-    "ui-remote-sync.prop.feedback.description": "Description"
+    "remote-sync.resources": "الموارد",
+    "prop.feedback.id": "المعرّف",
+    "prop.feedback.correlationId": "معرف الارتباط",
+    "prop.feedback.caseIndicator": "الحالة",
+    "prop.feedback.status": "الحالة",
+    "prop.feedback.description": "الوصف"
 }
