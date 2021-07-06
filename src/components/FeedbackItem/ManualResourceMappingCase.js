@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useOkapiKy } from '@folio/stripes/core';
+import Registry from '../../Registry';
 
 const propTypes = {
   resource: PropTypes.object,
@@ -52,6 +53,15 @@ export default function ManualResourceMappingCase({resource, question, answer}:p
     post_feedback_request(feedback_response).then(console.log)
   }
 
+  const onResourceSelected = (r) => {
+    console.log("resource selected: %o",r);
+  }
+
+  const registry_entry = Registry.getResource('license');
+  const LookupComponent = registry_entry ? registry_entry.getLookupComponent() : null;
+
+  console.log("Registry entry: %o, lookup_component: %o",registry_entry,LookupComponent);
+
   return (
     <div>
       ManualResourceMappingCase
@@ -78,6 +88,7 @@ export default function ManualResourceMappingCase({resource, question, answer}:p
                 { answerData.answerType=='map' && (
                   <div>
                       Map to {question.folioResourceType} : <input type="text" value={answerData.mappedResource} name="MappedId" onChange={ e => setMappedResourceId(e.target.value) }/>
+                      <LookupComponent input={{name:'ResourceLookup', value:''}} onResourceSelected={onResourceSelected} resource={registry_entry} />
                   </div> 
                 ) }
                 { answerData.answerType=='create' && <p>A new FOLIO resource will be created for this item</p> }
