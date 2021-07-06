@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useOkapiKy } from '@folio/stripes/core';
 
 const propTypes = {
   resource: PropTypes.object,
@@ -7,9 +8,12 @@ const propTypes = {
   answer: PropTypes.object
 };
 
+
 export default function ManualResourceMappingCase({resource, question, answer}:props) {
 
   const [answerData, setAnswerData] = useState(answer);
+  const ky = useOkapiKy();
+
 
   const selectAnswerType = (answerType) => {
     // answerData.answerType=answerType;
@@ -25,8 +29,15 @@ export default function ManualResourceMappingCase({resource, question, answer}:p
 
   console.log("Answer: %o",answerData);
 
-  const saveFeedback = () => {
+  const saveFeedback = (event) => {
     console.log("Save feedback %o",answerData);
+    event.preventDefault()
+    // let config_call = async (url_to_submit) => {
+    //   console.log("Post to....%s",url_to_submit);
+    //   const json = await ky.post('remote-sync/settings/configureFromRegister', {json: {url: url_to_submit}}).json();
+    //   return json
+    // }
+    // config_call(definitionsUrl).then(console.log)
   }
 
   return (
