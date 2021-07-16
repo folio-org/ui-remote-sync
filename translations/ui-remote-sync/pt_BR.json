@@ -7,10 +7,10 @@
     "remote-sync.summary": "Sumário",
     "remote-sync.tasks": "Feedback necessário",
     "remote-sync.feedback": "Feedback fornecido",
-    "remote-sync.resources": "Resources",
+    "remote-sync.resources": "Recursos",
     "prop.feedback.id": "ID",
     "prop.feedback.correlationId": "Correlation Id",
     "prop.feedback.caseIndicator": "Case",
     "prop.feedback.status": "Status",
-    "prop.feedback.description": "Description"
+    "prop.feedback.description": "Descrição"
 }
