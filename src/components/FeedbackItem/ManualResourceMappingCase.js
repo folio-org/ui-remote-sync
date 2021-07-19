@@ -69,12 +69,7 @@ export default function ManualResourceMappingCase({resource, question, answer}:p
 
   return (
     <div>
-      ManualResourceMappingCase {answerData.answerType}
-      <hr/>
-      ID : {resource.id} <br/>
-      correlationId : {resource.correlationId} <br/>
-      caseIndicator : {resource.caseIndicator} <br/>
-      <p>{resource.description}</p>
+      <h2>Map a remote resource</h2>
       <p>{question.prompt}</p>
       <form>
         <table width="100%" style={{border: "1px solid black"}}>
