@@ -16,7 +16,9 @@ const propTypes = {
 
 export default function ManualResourceMappingCase({resource, question, answer}:props) {
 
-  const [answerData, setAnswerData] = useState(JSON.parse(resource.response));
+  const parsed_response = resource.response && JSON.parse(resource.response)
+
+  const [answerData, setAnswerData] = useState(parsed_response ? parsed_response : {} );
  
   const ky = useOkapiKy();
 
@@ -61,6 +63,7 @@ export default function ManualResourceMappingCase({resource, question, answer}:p
     
     setMappedResource(r);
   }
+
 
   const registry_entry = Registry.getResource('license');
   const LookupComponent = registry_entry ? registry_entry.getLookupComponent() : null;
