@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useOkapiKy } from '@folio/stripes/core';
 import Registry from '../../Registry';
+import {
+  Button
+} from '@folio/stripes/components';
+
 
 const propTypes = {
   resource: PropTypes.object,
@@ -12,9 +16,9 @@ const propTypes = {
 
 export default function ManualResourceMappingCase({resource, question, answer}:props) {
 
-  const [answerData, setAnswerData] = useState(answer);
+  const [answerData, setAnswerData] = useState(JSON.parse(resource.response));
+ 
   const ky = useOkapiKy();
-
 
   const selectAnswerType = (answerType) => {
     // answerData.answerType=answerType;
@@ -22,11 +26,9 @@ export default function ManualResourceMappingCase({resource, question, answer}:p
     setAnswerData(prevState => ({...prevState, answerType: answerType }));
   }
 
-  const setMappedResourceId = (mappedResource) => {
+  const setMappedResource = (mappedResource) => {
     setAnswerData(prevState => ({...prevState, mappedResource: mappedResource }));
   }
-
-  let answer_detail_pane = null;
 
   console.log("Answer: %o",answerData);
 
@@ -55,6 +57,9 @@ export default function ManualResourceMappingCase({resource, question, answer}:p
 
   const onResourceSelected = (r) => {
     console.log("resource selected: %o",r);
+    // Man this is fugly. We stash the whole resource because the link license plugin needs the whole representation
+    
+    setMappedResource(r);
   }
 
   const registry_entry = Registry.getResource('license');
@@ -64,7 +69,7 @@ export default function ManualResourceMappingCase({resource, question, answer}:p
 
   return (
     <div>
-      ManualResourceMappingCase
+      ManualResourceMappingCase {answerData.answerType}
       <hr/>
       ID : {resource.id} <br/>
       correlationId : {resource.correlationId} <br/>
@@ -75,20 +80,32 @@ export default function ManualResourceMappingCase({resource, question, answer}:p
         <table width="100%" style={{border: "1px solid black"}}>
           <thead>
             <tr>
-              <td align="center">Map Existing<br/> <input type="radio" name="answer" value="map"    onClick={() => selectAnswerType('map')} /></td>
-              <td align="center">Create<br/>       <input type="radio" name="answer" value="create" onClick={() => selectAnswerType('create')} /></td>
-              <td align="center">Ignore<br/>       <input type="radio" name="answer" value="ignore" onClick={() => selectAnswerType('ignore')} /></td>
+              <td align="center">Map Existing<br/> <input type="radio" 
+                                                          name="answer" 
+                                                          value="map"    
+                                                          onClick={() => selectAnswerType('map')} 
+                                                          checked={answerData.answerType === "map"}/>
+              </td>
+              <td align="center">Create<br/>       <input type="radio" 
+                                                          name="answer" 
+                                                          value="create" 
+                                                          onClick={() => selectAnswerType('create')}
+                                                          checked={answerData.answerType === "create"}/>
+              </td>
+              <td align="center">Ignore<br/>       <input type="radio" 
+                                                          name="answer" 
+                                                          value="ignore" 
+                                                          onClick={() => selectAnswerType('ignore')}
+                                                          checked={answerData.answerType === "ignore"}/>
+              </td>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td colSpan="3">
-                { answer_detail_pane }
-                <hr/>
                 { answerData.answerType=='map' && (
                   <div>
-                      Map to {question.folioResourceType} : <input type="text" value={answerData.mappedResource} name="MappedId" onChange={ e => setMappedResourceId(e.target.value) }/>
-                      <LookupComponent input={{name:'ResourceLookup', value:''}} onResourceSelected={onResourceSelected} resource={registry_entry} />
+                      <LookupComponent input={{name:'ResourceLookup', value:answerData.mappedResource}} onResourceSelected={onResourceSelected} resource={answerData.mappedResource} />
                   </div> 
                 ) }
                 { answerData.answerType=='create' && <p>A new FOLIO resource will be created for this item</p> }
@@ -97,12 +114,9 @@ export default function ManualResourceMappingCase({resource, question, answer}:p
             </tr>
           </tbody>
         </table>
-        <button type="submit" onClick={saveFeedback} >Save Feedback</button>
+        <br/>
+        <Button type="submit" onClick={saveFeedback} >Save Feedback</Button>
       </form>
-      <hr/>
-        Data will be
-      <hr/>
-      {JSON.stringify(answerData)}
     </div>
   );
 }
