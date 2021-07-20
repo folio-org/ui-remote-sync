@@ -44,8 +44,6 @@ export default function FeedbackItem({resource} : props) {
 
   return (
     <Pane>
-      {JSON.stringify(resource)}
-      <hr/>
       <FeedbackComponent resource={resource} question={question} answer={answer}/>
     </Pane>
   );
