@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import SimpleLookupSASQ from '../SimpleLookupSASQ/SimpleLookupSASQ';
 import FeedbackItem from '../FeedbackItem/FeedbackItem';
+import { FormattedMessage } from 'react-intl';
 
 const propTypes = {
 };
@@ -10,10 +11,12 @@ const propTypes = {
 export default function ToDos({}) {
 
   let result_columns = [
-    { label: "id", propertyPath:"id" },
-    { label: "correlationId", propertyPath:"correlationId" },
-    { label: "question", propertyPath:"question" },
-    { label: "response", propertyPath:"response" },
+    { label: " ", propertyPath: "selected" },
+    { label: <FormattedMessage id="ui-remote-sync.prop.feedback.id" />, propertyPath:"id" },
+    { label: <FormattedMessage id="ui-remote-sync.prop.feedback.correlationId" />, propertyPath:"correlationId" },
+    { label: <FormattedMessage id="ui-remote-sync.prop.feedback.caseIndicator" />, propertyPath:"caseIndicator" },
+    { label: <FormattedMessage id="ui-remote-sync.prop.feedback.status" />, propertyPath:"status" },
+    { label: <FormattedMessage id="ui-remote-sync.prop.feedback.description" />, propertyPath:"description" }
   ]
 
   console.log("ToDos: %o",FeedbackItem);
