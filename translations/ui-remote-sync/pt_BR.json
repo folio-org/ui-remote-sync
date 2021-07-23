@@ -10,7 +10,7 @@
     "remote-sync.resources": "Recursos",
     "prop.feedback.id": "ID",
     "prop.feedback.correlationId": "Correlation Id",
-    "prop.feedback.caseIndicator": "Case",
+    "prop.feedback.caseIndicator": "Caso",
     "prop.feedback.status": "Status",
     "prop.feedback.description": "Descrição"
 }
