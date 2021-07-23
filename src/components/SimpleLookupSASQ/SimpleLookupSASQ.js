@@ -51,6 +51,14 @@ export default function SimpleLookupSASQ({context, target, result_columns, detai
   const [showDetails, setShowDetails] = useState(false);
   const [selectedRecord, setSelectedRecord] = useState({});
 
+  // Build the map of column definitions
+  const cm = Object.fromEntries(
+    result_columns.map(e => [e.propertyPath, e.label])
+  )
+
+  // Build the list of visible columns
+  const vc = result_columns.map(e => e.propertyPath);
+
   const rowClickHandler = (event,item) => {
     console.log("select row %o",item);
     setSelectedRecord(item)
@@ -75,17 +83,10 @@ export default function SimpleLookupSASQ({context, target, result_columns, detai
         >
         <MultiColumnList
           autosize
-          columnMapping={{
-            selected: ' ',
-            id: <FormattedMessage id="ui-remote-sync.prop.feedback.id" />,
-            correlationId: <FormattedMessage id="ui-remote-sync.prop.feedback.correlationId" />,
-            caseIndicator: <FormattedMessage id="ui-remote-sync.prop.feedback.caseIndicator" />,
-            status: <FormattedMessage id="ui-remote-sync.prop.feedback.status" />,
-            description: <FormattedMessage id="ui-remote-sync.prop.feedback.description" />
-          }}
+          columnMapping={cm}
           contentData={table_data}
           totalCount={total_records}
-          visibleColumns={['id', 'correlationId', 'caseIndicator', 'status', 'description']}
+          visibleColumns={vc}
           onRowClick={rowClickHandler}
         />
       </Pane>
