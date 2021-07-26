@@ -33,6 +33,8 @@ export default function SimpleLookupSASQ({context, target, result_columns, detai
 
   let buildQueryParams = () => {
     return {
+      max:100,
+      offset:0,
       stats: true
     }
   }

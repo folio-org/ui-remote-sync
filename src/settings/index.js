@@ -50,12 +50,7 @@ class ResourceSharingSettings extends React.Component {
         route: 'Definitions',
         label: 'definitions',
         component: (props) => <DefinitionsPage sectionName="Definitions" />
-      },
-      {
-        route: 'Definitions2',
-        label: 'definitions2',
-        component: (props) => <DefinitionsPage sectionName="Definitions" />
-      },
+      }
     ];
 
     console.log("Sections: %o",sections);
