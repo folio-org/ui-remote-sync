@@ -73,12 +73,14 @@ export default function RemoteSyncSummary({}) {
           return (
             <div id={process.id} style={boxStyle} key={process.id}>
               <h3>{process.name}</h3>
+              <ul>
               {
                 process.recordCounts.map ( rc => (
-                    <span key={rc[0]}>status: {rc[0]} : {rc[1]}</span>
+                    <li key={rc[0]}>{rc[0]} : {rc[1]}</li>
                   )
                 )
               }
+              </ul>
             </div>
           )
         })
