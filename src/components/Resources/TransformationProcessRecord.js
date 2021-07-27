@@ -12,7 +12,6 @@ export default function TransformationProcessRecord({resource} : props) {
 
   return (
     <Pane>
-      {JSON.stringify(resource)}
       <table>
         <tbody>
           <tr><td>processControlStatus</td><td>{resource.processControlStatus}</td></tr>
@@ -32,6 +31,8 @@ export default function TransformationProcessRecord({resource} : props) {
           </td></tr>
         </tbody>
       </table>
+      <hr/>
+      {JSON.stringify(resource)}
     </Pane>
   );
 }
