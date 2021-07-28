@@ -34,6 +34,8 @@ export default function TransformationProcessRecord({resource} : props) {
           <tr><td>Data</td><td>{resource.inputDataString}</td></tr>
         </tbody>
       </table>
+      <hr/>
+      {JSON.stringify(resource)}
     </Pane>
   );
 }
