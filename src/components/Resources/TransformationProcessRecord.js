@@ -17,6 +17,8 @@ export default function TransformationProcessRecord({resource} : props) {
           <tr><td>processControlStatus</td><td>{resource.processControlStatus}</td></tr>
           <tr><td>transformationStatus</td><td>{resource.transformationStatus}</td></tr>
           <tr><td>sourceRecordId</td><td>{resource.sourceRecordId}</td></tr>
+          <tr><td>last processing attempt</td><td>{resource.lastProcessAttempt}</td></tr>
+          <tr><td>last success</td><td>{resource.lastProcessComplete}</td></tr>
           <tr><td>Status Report</td><td>
             <table>
               <tbody>
@@ -29,6 +31,7 @@ export default function TransformationProcessRecord({resource} : props) {
               </tbody>
             </table>
           </td></tr>
+          <tr><td>Data</td><td>{resource.inputDataString}</td></tr>
         </tbody>
       </table>
       <hr/>
