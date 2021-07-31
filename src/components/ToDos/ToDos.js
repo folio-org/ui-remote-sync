@@ -12,7 +12,7 @@ export default function ToDos({}) {
 
   let result_columns = [
     { label: " ", propertyPath: "selected" },
-    { label: <FormattedMessage id="ui-remote-sync.prop.feedback.description" />, propertyPath:"description" }
+    { label: <FormattedMessage id="ui-remote-sync.prop.feedback.description" />, propertyPath:"description" },
     { label: <FormattedMessage id="ui-remote-sync.prop.feedback.id" />, propertyPath:"id" },
     { label: <FormattedMessage id="ui-remote-sync.prop.feedback.correlationId" />, propertyPath:"correlationId" },
     { label: <FormattedMessage id="ui-remote-sync.prop.feedback.caseIndicator" />, propertyPath:"caseIndicator" },
