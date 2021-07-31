@@ -10,6 +10,19 @@ const propTypes = {
 
 export default function TransformationProcessRecord({resource} : props) {
 
+  // This function really should re-pull the transformation process record with a FULL element set name so that
+  // we don't transfer the entire inputDataString for every line in the table
+  let folioResourceLink = (resourceLink) => {
+    let result = null;
+    if ( resourceLink != null ) {
+      result = (
+        <span>{resourceLink.folioContext}/{resourceLink.folioId}</span>
+      )
+    }
+
+    retun result;
+  }
+
   return (
     <Pane>
       <table>
@@ -31,6 +44,7 @@ export default function TransformationProcessRecord({resource} : props) {
               </tbody>
             </table>
           </td></tr>
+          <tr><td>Corresponding Resource</td><td>{folioResourceLink(resource.correspondingResource)}</td></tr>
           <tr><td>Data</td><td>{resource.inputDataString}</td></tr>
         </tbody>
       </table>
