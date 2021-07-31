@@ -12,7 +12,7 @@ export default function TransformationProcessRecord({resource} : props) {
 
   // This function really should re-pull the transformation process record with a FULL element set name so that
   // we don't transfer the entire inputDataString for every line in the table
-  let folioResourceLink = (resourceLink) => {
+  const folioResourceLink = (resourceLink) => {
     let result = null;
     if ( resourceLink != null ) {
       result = (
@@ -20,7 +20,7 @@ export default function TransformationProcessRecord({resource} : props) {
       )
     }
 
-    retun result;
+    return result;
   }
 
   return (
