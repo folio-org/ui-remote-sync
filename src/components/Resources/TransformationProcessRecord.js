@@ -10,6 +10,17 @@ const propTypes = {
 
 export default function TransformationProcessRecord({resource} : props) {
 
+  let folioResourceLink = (resourceLink) => {
+    let result = null;
+    if ( resourceLink != null ) {
+      result = (
+        <span>{resourceLink.folioContext}/{resourceLink.folioId}</span>
+      )
+    }
+
+    retun result;
+  }
+
   return (
     <Pane>
       <table>
@@ -31,6 +42,7 @@ export default function TransformationProcessRecord({resource} : props) {
               </tbody>
             </table>
           </td></tr>
+          <tr><td>Corresponding Resource</td><td>{folioResourceLink(resource.correspondingResource)}</td></tr>
           <tr><td>Data</td><td>{resource.inputDataString}</td></tr>
         </tbody>
       </table>
