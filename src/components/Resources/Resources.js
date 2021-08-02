@@ -22,6 +22,7 @@ export default function Resources({}) {
                       target="remote-sync/records"
                       result_columns={result_columns}
                       details={TransformationProcessRecord}
+                      defaultSort="sourceRecordId"
     />
   );
 }

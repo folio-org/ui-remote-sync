@@ -26,7 +26,7 @@ const propTypes = {
   details: PropTypes.func,
 };
 
-export default function SimpleLookupSASQ({context, target, result_columns, details} : props) {
+export default function SimpleLookupSASQ({context, target, result_columns, details, defaultSort} : props) {
 
 
   const ky = useOkapiKy();
@@ -35,7 +35,8 @@ export default function SimpleLookupSASQ({context, target, result_columns, detai
     return {
       max:100,
       offset:0,
-      stats: true
+      stats: true,
+      sort: defaultSort
     }
   }
 
