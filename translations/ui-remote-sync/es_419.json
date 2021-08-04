@@ -4,13 +4,13 @@
     "settings.finish-editing": "Save",
     "settings.no-current-value": "No current value",
     "settingName.settingLoading": "Loading",
-    "remote-sync.summary": "Summary",
-    "remote-sync.tasks": "Feedback Needed",
-    "remote-sync.feedback": "Feedback Supplied",
-    "remote-sync.resources": "Resources",
+    "remote-sync.summary": "Resumen",
+    "remote-sync.tasks": "Comentarios necesarios",
+    "remote-sync.feedback": "Retroalimentación proporcionada",
+    "remote-sync.resources": "Recursos",
     "prop.feedback.id": "ID",
-    "prop.feedback.correlationId": "Correlation Id",
-    "prop.feedback.caseIndicator": "Case",
-    "prop.feedback.status": "Status",
-    "prop.feedback.description": "Description"
+    "prop.feedback.correlationId": "Identificador de correlación",
+    "prop.feedback.caseIndicator": "Caso",
+    "prop.feedback.status": "Estado",
+    "prop.feedback.description": "Descripción"
 }
