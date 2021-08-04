@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import {
-  Pane
+  Pane,
+  PaneHeader
 } from '@folio/stripes/components';
 
 import UnhandledFeedbackCase from './UnhandledFeedbackCase';
@@ -12,7 +13,7 @@ const propTypes = {
   resource: PropTypes.object,
 };
 
-export default function FeedbackItem({resource} : props) {
+export default function FeedbackItem({resource, closeDetailsHandler} : props) {
 
   /* 
   let feedback_component = null;
@@ -43,7 +44,17 @@ export default function FeedbackItem({resource} : props) {
 
 
   return (
-    <Pane>
+    <Pane
+      renderHeader={renderProps => (
+        <PaneHeader
+          {...renderProps}
+          dismissible
+          onClose={closeDetailsHandler}
+          paneTitle={resource.caseIndicator+" : "+resource.description}
+        />
+      )}
+
+    >
       <FeedbackComponent resource={resource} question={question} answer={answer}/>
     </Pane>
   );
