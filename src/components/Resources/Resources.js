@@ -12,6 +12,7 @@ export default function Resources({}) {
   let result_columns = [
     { propertyPath:"selected", label: ' ' },
     { propertyPath:"id", label: "id" },
+    { propertyPath:"label", label: "label" },
     { propertyPath:"sourceRecordId", label: "Source Record ID" },
     { propertyPath:"transformationStatus", label: "Transformation Status" },
     { propertyPath:"processControlStatus", label: "Process Control Status" },

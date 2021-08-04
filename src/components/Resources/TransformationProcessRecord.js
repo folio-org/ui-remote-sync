@@ -59,8 +59,6 @@ export default function TransformationProcessRecord({resource, closeDetailsHandl
           <tr><td>Data</td><td>{resource.inputDataString}</td></tr>
         </tbody>
       </table>
-      <hr/>
-      {JSON.stringify(resource)}
     </Pane>
   );
 }
