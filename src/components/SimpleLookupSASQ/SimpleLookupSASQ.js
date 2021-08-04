@@ -26,7 +26,7 @@ const propTypes = {
   details: PropTypes.func,
 };
 
-export default function SimpleLookupSASQ({context, target, result_columns, details, defaultSort} : props) {
+export default function SimpleLookupSASQ({context, target, result_columns, details, defaultSort } : props) {
 
 
   const ky = useOkapiKy();
@@ -68,6 +68,11 @@ export default function SimpleLookupSASQ({context, target, result_columns, detai
     setShowDetails(true)
   }
 
+  const closeDetailsHandler = () => {
+    console.log("Close details...");
+    setShowDetails(false)
+  }
+
   const table_data= data ? data.results : []
   const total_records = data ? data.totalRecords : 0;
 
@@ -75,7 +80,7 @@ export default function SimpleLookupSASQ({context, target, result_columns, detai
 
   const details_pane = ( ( showDetails==true ) && 
                          ( DetailsComponent != null ) &&
-                         ( selectedRecord != null ) ) ? <DetailsComponent resource={selectedRecord} /> : null;
+                         ( selectedRecord != null ) ) ? <DetailsComponent resource={selectedRecord} closeDetailsHandler={closeDetailsHandler} /> : null;
 
   return (
     <Paneset>

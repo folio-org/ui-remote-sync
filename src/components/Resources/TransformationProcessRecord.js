@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import {
-  Pane
+  Pane,
+  PaneHeader
 } from '@folio/stripes/components';
 
 const propTypes = {
   resource: PropTypes.object,
 };
 
-export default function TransformationProcessRecord({resource} : props) {
+export default function TransformationProcessRecord({resource, closeDetailsHandler} : props) {
 
   // This function really should re-pull the transformation process record with a FULL element set name so that
   // we don't transfer the entire inputDataString for every line in the table
@@ -24,9 +25,19 @@ export default function TransformationProcessRecord({resource} : props) {
   }
 
   return (
-    <Pane>
+    <Pane
+      renderHeader={renderProps => (
+        <PaneHeader
+          {...renderProps}
+          dismissible
+          onClose={closeDetailsHandler}
+          paneTitle={resource.label != null ? resource.label : resource.sourceRecordId}
+        />
+      )}
+    >
       <table>
         <tbody>
+          <tr><td>label</td><td>{resource.label}</td></tr>
           <tr><td>processControlStatus</td><td>{resource.processControlStatus}</td></tr>
           <tr><td>transformationStatus</td><td>{resource.transformationStatus}</td></tr>
           <tr><td>sourceRecordId</td><td>{resource.sourceRecordId}</td></tr>
@@ -48,8 +59,6 @@ export default function TransformationProcessRecord({resource} : props) {
           <tr><td>Data</td><td>{resource.inputDataString}</td></tr>
         </tbody>
       </table>
-      <hr/>
-      {JSON.stringify(resource)}
     </Pane>
   );
 }
