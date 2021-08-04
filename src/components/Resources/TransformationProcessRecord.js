@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import {
-  Pane
+  Pane,
+  PaneHeader
 } from '@folio/stripes/components';
 
 const propTypes = {
@@ -23,10 +24,24 @@ export default function TransformationProcessRecord({resource} : props) {
     return result;
   }
 
+  const handleClose = () => {
+    
+  }
+
   return (
-    <Pane>
+    <Pane
+      renderHeader={renderProps => (
+        <PaneHeader
+          {...renderProps}
+          dismissible
+          onClose={handleClose}
+          paneTitle={resource.label != null ? resource.label : resource.sourceRecordId}
+        />
+      )}
+    >
       <table>
         <tbody>
+          <tr><td>label</td><td>{resource.label}</td></tr>
           <tr><td>processControlStatus</td><td>{resource.processControlStatus}</td></tr>
           <tr><td>transformationStatus</td><td>{resource.transformationStatus}</td></tr>
           <tr><td>sourceRecordId</td><td>{resource.sourceRecordId}</td></tr>
