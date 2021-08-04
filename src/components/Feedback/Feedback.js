@@ -24,6 +24,7 @@ export default function Feedback({}) {
                       target="remote-sync/feedback/done"
                       result_columns={result_columns} 
                       details={FeedbackItem} 
+                      paneTitle="Feedback Provided"
     />
   );
 }

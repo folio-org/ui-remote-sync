@@ -7,6 +7,7 @@ import {
 
 import UnhandledFeedbackCase from './UnhandledFeedbackCase';
 import ManualResourceMappingCase from './ManualResourceMappingCase';
+import ValueMappingCase from './ValueMappingCase';
 
 
 const propTypes = {
@@ -36,6 +37,9 @@ export default function FeedbackItem({resource, closeDetailsHandler} : props) {
   switch ( resource.caseIndicator ) {
     case 'MANUAL-RESOURCE-MAPPING':
       FeedbackComponent = ManualResourceMappingCase
+      break;
+    case 'MANUAL-VALUE-MAPPING':
+      FeedbackComponent = ValueMappingCase
       break;
     default:
       FeedbackComponent = UnhandledFeedbackCase
