@@ -24,6 +24,7 @@ export default function Resources({}) {
                       result_columns={result_columns}
                       details={TransformationProcessRecord}
                       defaultSort="sourceRecordId"
+                      paneTitle="Import Resources"
     />
   );
 }

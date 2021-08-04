@@ -26,7 +26,7 @@ const propTypes = {
   details: PropTypes.func,
 };
 
-export default function SimpleLookupSASQ({context, target, result_columns, details, defaultSort } : props) {
+export default function SimpleLookupSASQ({context, target, result_columns, details, defaultSort, paneTitle } : props) {
 
 
   const ky = useOkapiKy();
@@ -88,6 +88,7 @@ export default function SimpleLookupSASQ({context, target, result_columns, detai
         defaultWidth="fill"
         noOverflow
         padContent={false}
+        paneTitle={paneTitle}
         >
         <MultiColumnList
           autosize

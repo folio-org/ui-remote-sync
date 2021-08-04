@@ -23,7 +23,8 @@ export default function ToDos({}) {
     <SimpleLookupSASQ context={['ui-remote-sync', 'todos']}
                       target="remote-sync/feedback/todo"
                       result_columns={result_columns}
-                      details={FeedbackItem} />
+                      details={FeedbackItem}
+                      paneTitle="Feedback Needed" />
   );
 }
 
