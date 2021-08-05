@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from 'react';
+import React, { lazy } from 'react';
 import { Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 const Settings = lazy(() => import('./settings'));
@@ -37,13 +37,13 @@ const App = (appProps) => {
   }
 
   return (
-      <Suspense fallback={null}>
+      <>
         <AppContextMenu>
         {(handleToggle) => (
           <NavList>
             <NavListSection>
               <NavListItem to="/remote-sync" onClick={handleToggle}>
-                Remote Sync
+                 <FormattedMessage id="ui-remote-sync.remote-sync.dashboard" />
               </NavListItem>
               <NavListItem to="/remote-sync/resources" onClick={handleToggle}>
                 <FormattedMessage id="ui-remote-sync.remote-sync.resources" />
@@ -55,20 +55,20 @@ const App = (appProps) => {
                 <FormattedMessage id="ui-remote-sync.remote-sync.feedback" />
               </NavListItem>
               <NavListItem onClick={() => { shortcutModalToggle(handleToggle); }}>
-                Keyboard Shortcuts
+                 <FormattedMessage id="ui-remote-sync.remote-sync.kbdshortcuts" />
               </NavListItem>
             </NavListSection>
           </NavList>
         )}
         </AppContextMenu>
 
-            <Switch>
-              <Route component={Resources} path={`${path}/resources`} />
-              <Route component={Feedback} path={`${path}/feedback`} />
-              <Route component={ToDos} path={`${path}/todos`} />
-              <Route component={RemoteSyncSummary} path={`${path}`} />
-            </Switch>
-      </Suspense>
+        <Switch>
+          <Route component={Resources} path={`${path}/resources`} />
+          <Route component={Feedback} path={`${path}/feedback`} />
+          <Route component={ToDos} path={`${path}/todos`} />
+          <Route component={RemoteSyncSummary} path={`${path}`} />
+        </Switch>
+      </>
   );
 }
 

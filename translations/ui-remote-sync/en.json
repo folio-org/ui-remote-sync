@@ -11,6 +11,8 @@
   "remote-sync.resources": "Resources",
   "remote-sync.tasks": "Feedback Needed",
   "remote-sync.feedback": "Feedback Supplied",
+  "remote-sync.dashboard": "Dashboard",
+  "remote-sync.kbdshortcuts": "Keyboard Shortcuts",
 
   "prop.feedback.id": "ID",
   "prop.feedback.correlationId": "Correlation Id",
