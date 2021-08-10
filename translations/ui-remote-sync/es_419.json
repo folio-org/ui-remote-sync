@@ -1,9 +1,9 @@
 {
-    "meta.title": "Remote Sync",
-    "settings.edit": "Edit",
-    "settings.finish-editing": "Save",
-    "settings.no-current-value": "No current value",
-    "settingName.settingLoading": "Loading",
+    "meta.title": "Sincronización remota",
+    "settings.edit": "Editar",
+    "settings.finish-editing": "Guardar",
+    "settings.no-current-value": "Sin valor actual",
+    "settingName.settingLoading": "Cargando",
     "remote-sync.summary": "Resumen",
     "remote-sync.tasks": "Comentarios necesarios",
     "remote-sync.feedback": "Retroalimentación proporcionada",
@@ -12,5 +12,7 @@
     "prop.feedback.correlationId": "Identificador de correlación",
     "prop.feedback.caseIndicator": "Caso",
     "prop.feedback.status": "Estado",
-    "prop.feedback.description": "Descripción"
+    "prop.feedback.description": "Descripción",
+    "remote-sync.dashboard": "Tablero de mandos",
+    "remote-sync.kbdshortcuts": "Atajos de teclado"
 }
