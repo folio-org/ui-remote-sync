@@ -12,5 +12,7 @@
     "prop.feedback.correlationId": "معرف الارتباط",
     "prop.feedback.caseIndicator": "الحالة",
     "prop.feedback.status": "الحالة",
-    "prop.feedback.description": "الوصف"
+    "prop.feedback.description": "الوصف",
+    "remote-sync.dashboard": "اللوحة الرئيسية",
+    "remote-sync.kbdshortcuts": "اختصارات لوحة المفاتيح"
 }

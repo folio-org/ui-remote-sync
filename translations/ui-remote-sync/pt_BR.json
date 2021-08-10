@@ -12,5 +12,7 @@
     "prop.feedback.correlationId": "Correlation Id",
     "prop.feedback.caseIndicator": "Caso",
     "prop.feedback.status": "Status",
-    "prop.feedback.description": "Descrição"
+    "prop.feedback.description": "Descrição",
+    "remote-sync.dashboard": "Dashboard",
+    "remote-sync.kbdshortcuts": "Keyboard Shortcuts"
 }
