@@ -13,6 +13,6 @@
     "prop.feedback.caseIndicator": "Caso",
     "prop.feedback.status": "Status",
     "prop.feedback.description": "Descrição",
-    "remote-sync.dashboard": "Dashboard",
-    "remote-sync.kbdshortcuts": "Keyboard Shortcuts"
+    "remote-sync.dashboard": "Painel de controle",
+    "remote-sync.kbdshortcuts": "Atalhos do teclado"
 }
