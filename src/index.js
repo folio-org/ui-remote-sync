@@ -1,4 +1,4 @@
-import React, { lazy } from 'react';
+import React, { lazy, Suspense } from 'react';
 import { Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 const Settings = lazy(() => import('./settings'));
@@ -32,12 +32,14 @@ const App = (appProps) => {
 
   if (actAs === 'settings') {
     return (
-      <Settings {...appProps} />
+      <Suspense fallback={null}>
+        <Settings {...appProps} />
+      </Suspense>
     );
   }
 
   return (
-      <>
+      <Suspense fallback={null}>
         <AppContextMenu>
         {(handleToggle) => (
           <NavList>
@@ -68,7 +70,7 @@ const App = (appProps) => {
           <Route component={ToDos} path={`${path}/todos`} />
           <Route component={RemoteSyncSummary} path={`${path}`} />
         </Switch>
-      </>
+      </Suspense>
   );
 }
 
