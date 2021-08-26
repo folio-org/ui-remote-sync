@@ -46,7 +46,7 @@ export default function TransformationProcessRecord({resource, closeDetailsHandl
           <tr><td>Status Report</td><td>
             <table>
               <tbody>
-                { JSON.parse(resource.statusReport).map( (sr) => (
+                { resource.statusReport && JSON.parse(resource.statusReport).map( (sr) => (
                     <tr>
                       <td>{sr.ts}</td>
                       <td>{sr.msg}</td>
