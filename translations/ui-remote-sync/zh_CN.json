@@ -13,6 +13,6 @@
     "prop.feedback.caseIndicator": "案例",
     "prop.feedback.status": "状态",
     "prop.feedback.description": "描述",
-    "remote-sync.dashboard": "Dashboard",
-    "remote-sync.kbdshortcuts": "Keyboard Shortcuts"
+    "remote-sync.dashboard": "仪表盘",
+    "remote-sync.kbdshortcuts": "键盘快捷键"
 }
