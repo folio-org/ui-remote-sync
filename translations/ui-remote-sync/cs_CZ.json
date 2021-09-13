@@ -1,0 +1,18 @@
+{
+    "meta.title": "Remote Sync",
+    "settings.edit": "Edit",
+    "settings.finish-editing": "Save",
+    "settings.no-current-value": "No current value",
+    "settingName.settingLoading": "Loading",
+    "remote-sync.summary": "Summary",
+    "remote-sync.tasks": "Feedback Needed",
+    "remote-sync.feedback": "Feedback Supplied",
+    "remote-sync.resources": "Resources",
+    "prop.feedback.id": "ID",
+    "prop.feedback.correlationId": "Correlation Id",
+    "prop.feedback.caseIndicator": "Case",
+    "prop.feedback.status": "Status",
+    "prop.feedback.description": "Description",
+    "remote-sync.dashboard": "Dashboard",
+    "remote-sync.kbdshortcuts": "Keyboard Shortcuts"
+}
