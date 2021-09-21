@@ -1,22 +1,18 @@
-import React, { lazy, Suspense } from 'react';
+import React, { Suspense } from 'react';
 import { Switch } from 'react-router-dom';
-import PropTypes from 'prop-types';
-const Settings = lazy(() => import('./settings'));
-const RemoteSyncSummary = lazy(() => import('./components/RemoteSyncView/RemoteSyncSummary'));
-const ToDos = lazy(() => import('./components/ToDos/ToDos'));
-const Feedback = lazy(() => import('./components/Feedback/Feedback'));
-const Resources = lazy(() => import('./components/Resources/Resources'));
+
+import Settings from './settings';
+import RemoteSyncSummary from './components/RemoteSyncView/RemoteSyncSummary';
+import ToDos from './components/ToDos/ToDos';
+import Feedback from './components/Feedback/Feedback';
+import Resources from './components/Resources/Resources';
+
 import { FormattedMessage } from 'react-intl';
 import { AppContextMenu, 
          Route, 
          coreEvents, 
          HandlerManager } from '@folio/stripes/core';
 import {
-  Pane,
-  PaneMenu,
-  Paneset,
-  Button,
-  ButtonGroup,
   NavList,    
   NavListSection,
   NavListItem
@@ -25,10 +21,8 @@ import {
 import Registry from './Registry';
 
 
-
 const App = (appProps) => {
-
-  const { actAs, history, match: { path }, location: { pathname } } = appProps;
+  const { actAs, match: { path } } = appProps;
 
   if (actAs === 'settings') {
     return (
@@ -72,8 +66,7 @@ const App = (appProps) => {
         </Switch>
       </Suspense>
   );
-}
-
+};
 
 let registryEventFired = false;
 App.eventHandler = (event, stripes, data) => {
