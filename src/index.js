@@ -8,10 +8,11 @@ import Feedback from './components/Feedback/Feedback';
 import Resources from './components/Resources/Resources';
 
 import { FormattedMessage } from 'react-intl';
-import { AppContextMenu, 
-         Route, 
-         coreEvents, 
-         HandlerManager } from '@folio/stripes/core';
+import {
+  AppContextMenu, 
+  Route, 
+} from '@folio/stripes/core';
+
 import {
   NavList,    
   NavListSection,
