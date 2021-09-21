@@ -15,6 +15,7 @@ export default function DefinitionsPage({}) {
 
   const ky = useOkapiKy();
   const [definitionsUrl, setDefinitionsURL] = useState();
+  const [uploadResult, setUploadResult] = useState();
 
   // https://github.com/sindresorhus/ky
   // const json = await ky.post('https://example.com', {json: {foo: true}}).json();
@@ -38,15 +39,22 @@ export default function DefinitionsPage({}) {
     let config_call = async (url_to_submit) => {
       console.log("Post to....%s",url_to_submit);
       const json = await ky.post('remote-sync/settings/configureFromRegister', {json: {url: url_to_submit}}).json();
-      return json
+      setUploadResult(json);
     }
-
-    config_call(definitionsUrl).then(console.log)
+    config_call(definitionsUrl);
   }
 
   const formStyle = {
     width: "100%"
   };
+
+  var ctr=0;
+  const upload_status_report = uploadResult?.status != null && <div>
+    <h1>Upload Status : {uploadResult.status}</h1>
+    <ul>
+      { uploadResult?.messages?.map((m) => <li key={'message-'+(ctr++)}>{m}</li>) }
+    </ul>
+  </div>
 
 
   return (
@@ -58,7 +66,8 @@ export default function DefinitionsPage({}) {
         lastMenu={getLastMenu()}
         paneTitle="Definitions"
       >
-        URL of definitions page: <input type="text" name="definitionsURL" onChange={e => setDefinitionsURL(e.target.value)} />
+        URL of new or updated definitions: <input type="text" name="definitionsURL" onChange={e => setDefinitionsURL(e.target.value)} /><br/>
+        {upload_status_report}
       </Pane>
     </form>
   );
