@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useOkapiKy } from '@folio/stripes/core';
-import Registry from '../../Registry';
+import { Registry } from '@folio/handler-stripes-registry';
 import {
   Button
 } from '@folio/stripes/components';
