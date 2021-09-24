@@ -4,6 +4,7 @@ import { useOkapiKy } from '@folio/stripes/core';
 import {
   Button
 } from '@folio/stripes/components';
+import RefdataCombo from './RefdataCombo';
 
 
 
@@ -58,7 +59,6 @@ export default function ValueMappingCase({resource, question, answer}:props) {
   return (
     <div>
       <h2>Map a reference value</h2>
-      <p>{question.prompt}</p>
       <p>{JSON.stringify(question)}</p>
       <form>
         <table width="100%" style={{border: "1px solid black"}}>
@@ -82,9 +82,7 @@ export default function ValueMappingCase({resource, question, answer}:props) {
             <tr>
               <td colSpan="3">
                 { answerData.answerType=='map' && (
-                  <div>
-                      Refdata lookup component
-                  </div>
+                  <>{question.prompt} : <input type="text" name="mappedValue" /></>
                 ) }
                 { answerData.answerType=='ignore' && <p>This item will be ignored indefinitely</p> }
               </td>
