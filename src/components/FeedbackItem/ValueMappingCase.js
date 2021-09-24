@@ -4,9 +4,6 @@ import { useOkapiKy } from '@folio/stripes/core';
 import {
   Button
 } from '@folio/stripes/components';
-import RefdataCombo from './RefdataCombo';
-
-
 
 const propTypes = {
   resource: PropTypes.object,
