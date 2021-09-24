@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useOkapiKy } from '@folio/stripes/core';
+import {
+  Button
+} from '@folio/stripes/components';
+
+
 
 const propTypes = {
   resource: PropTypes.object,
@@ -20,6 +25,12 @@ export default function ValueMappingCase({resource, question, answer}:props) {
   //const setMappedResource = (mappedResource) => {
   //  setAnswerData(prevState => ({...prevState, mappedResource: mappedResource }));
   //}
+
+  const selectAnswerType = (answerType) => {
+    // answerData.answerType=answerType;
+    console.log("select answer type answerData is now",answerData);
+    setAnswerData(prevState => ({...prevState, answerType: answerType }));
+  }
 
   const saveFeedback = (event) => {
     console.log("Save feedback %o",answerData);
@@ -46,10 +57,45 @@ export default function ValueMappingCase({resource, question, answer}:props) {
 
   return (
     <div>
-      <h2>Map a value</h2>
+      <h2>Map a reference value</h2>
       <p>{question.prompt}</p>
-      {JSON.stringify(question)}
+      <p>{JSON.stringify(question)}</p>
+      <form>
+        <table width="100%" style={{border: "1px solid black"}}>
+          <thead>
+            <tr>
+              <td align="center">Map Existing<br/> <input type="radio"
+                                                          name="answer"
+                                                          value="map"
+                                                          onClick={() => selectAnswerType('map')}
+                                                          checked={answerData.answerType === "map"}/>
+              </td>
+              <td align="center">Ignore<br/>       <input type="radio"
+                                                          name="answer"
+                                                          value="ignore"
+                                                          onClick={() => selectAnswerType('ignore')}
+                                                          checked={answerData.answerType === "ignore"}/>
+              </td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colSpan="3">
+                { answerData.answerType=='map' && (
+                  <div>
+                      Refdata lookup component
+                  </div>
+                ) }
+                { answerData.answerType=='ignore' && <p>This item will be ignored indefinitely</p> }
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <br/>
+        <Button type="submit" onClick={saveFeedback} >Save Feedback</Button>
+      </form>
     </div>
+
   );
 }
 
