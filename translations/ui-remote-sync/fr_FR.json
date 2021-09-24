@@ -1,9 +1,5 @@
 {
     "meta.title": "Synchronisation à distance",
-    "settings.edit": "Modifier",
-    "settings.finish-editing": "Sauvegarder",
-    "settings.no-current-value": "Aucune valeur actuelle",
-    "settingName.settingLoading": "Chargement",
     "remote-sync.summary": "Résumé",
     "remote-sync.tasks": "Commentaires requis",
     "remote-sync.feedback": "Commentaires fournis",
@@ -14,5 +10,17 @@
     "prop.feedback.status": "Statut",
     "prop.feedback.description": "Description",
     "remote-sync.dashboard": "Tableau de bord",
-    "remote-sync.kbdshortcuts": "Raccourcis clavier"
+    "remote-sync.kbdshortcuts": "Raccourcis clavier",
+    "settings.settingsSection.lASERIntegration": "LAS:eR integration",
+    "settings.lASERIntegration.laserermFOLIOPass": "FOLIO password",
+    "settings.lASERIntegration.laserermFOLIOUser": "FOLIO username",
+    "settings.lASERIntegration.laseridentifier": "LAS:eR identifier",
+    "settings.lASERIntegration.laseridentifierType": "LAS:eR identifier type",
+    "settings.lASERIntegration.lasersecret": "LAS:eR secret",
+    "settings.lASERIntegration.lasertoken": "LAS:eR token",
+    "settings.lASERIntegration.laserurl": "LAS:eR url",
+    "settings.settingsSection.secureMode": "Secure mode",
+    "settings.secureMode.enabled": "Secure mode enabled",
+    "settings.secureMode.publicKey": "Secure mode public key",
+    "settings.settingsSection.definitions": "Definitions"
 }
