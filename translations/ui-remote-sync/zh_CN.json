@@ -1,9 +1,5 @@
 {
     "meta.title": "远程同步",
-    "settings.edit": "编辑",
-    "settings.finish-editing": "保存",
-    "settings.no-current-value": "无当前值",
-    "settingName.settingLoading": "加载中",
     "remote-sync.summary": "摘要",
     "remote-sync.tasks": "需要反馈",
     "remote-sync.feedback": "提供反馈",
@@ -14,5 +10,17 @@
     "prop.feedback.status": "状态",
     "prop.feedback.description": "描述",
     "remote-sync.dashboard": "仪表盘",
-    "remote-sync.kbdshortcuts": "键盘快捷键"
+    "remote-sync.kbdshortcuts": "键盘快捷键",
+    "settings.settingsSection.lASERIntegration": "LAS:eR integration",
+    "settings.lASERIntegration.laserermFOLIOPass": "FOLIO password",
+    "settings.lASERIntegration.laserermFOLIOUser": "FOLIO username",
+    "settings.lASERIntegration.laseridentifier": "LAS:eR identifier",
+    "settings.lASERIntegration.laseridentifierType": "LAS:eR identifier type",
+    "settings.lASERIntegration.lasersecret": "LAS:eR secret",
+    "settings.lASERIntegration.lasertoken": "LAS:eR token",
+    "settings.lASERIntegration.laserurl": "LAS:eR url",
+    "settings.settingsSection.secureMode": "Secure mode",
+    "settings.secureMode.enabled": "Secure mode enabled",
+    "settings.secureMode.publicKey": "Secure mode public key",
+    "settings.settingsSection.definitions": "Definitions"
 }
