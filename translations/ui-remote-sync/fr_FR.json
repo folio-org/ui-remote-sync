@@ -12,8 +12,8 @@
     "remote-sync.dashboard": "Tableau de bord",
     "remote-sync.kbdshortcuts": "Raccourcis clavier",
     "settings.settingsSection.lASERIntegration": "LAS:eR integration",
-    "settings.lASERIntegration.laserermFOLIOPass": "FOLIO password",
-    "settings.lASERIntegration.laserermFOLIOUser": "FOLIO username",
+    "settings.lASERIntegration.laserermFOLIOPass": "Mot de passe FOLIO",
+    "settings.lASERIntegration.laserermFOLIOUser": "Identifiant FOLIO",
     "settings.lASERIntegration.laseridentifier": "LAS:eR identifier",
     "settings.lASERIntegration.laseridentifierType": "LAS:eR identifier type",
     "settings.lASERIntegration.lasersecret": "LAS:eR secret",
@@ -22,5 +22,5 @@
     "settings.settingsSection.secureMode": "Secure mode",
     "settings.secureMode.enabled": "Secure mode enabled",
     "settings.secureMode.publicKey": "Secure mode public key",
-    "settings.settingsSection.definitions": "Definitions"
+    "settings.settingsSection.definitions": "Définitions"
 }
