@@ -19,8 +19,8 @@
     "settings.lASERIntegration.lasersecret": "LAS:eR secret",
     "settings.lASERIntegration.lasertoken": "LAS:eR token",
     "settings.lASERIntegration.laserurl": "LAS:eR url",
-    "settings.settingsSection.secureMode": "Secure mode",
+    "settings.settingsSection.secureMode": "Zabezpečený režim",
     "settings.secureMode.enabled": "Secure mode enabled",
     "settings.secureMode.publicKey": "Secure mode public key",
-    "settings.settingsSection.definitions": "Definitions"
+    "settings.settingsSection.definitions": "Definice"
 }
