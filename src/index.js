@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 const Settings = lazy(() => import('./settings'));
 const RemoteSyncSummary = lazy(() => import('./components/RemoteSyncView/RemoteSyncSummary'));
 const ToDos = lazy(() => import('./components/ToDos/ToDos'));
+const Crosswalks = lazy(() => import('./components/Crosswalks/Crosswalks'));
 const Feedback = lazy(() => import('./components/Feedback/Feedback'));
 const Resources = lazy(() => import('./components/Resources/Resources'));
 import { FormattedMessage } from 'react-intl';
@@ -56,6 +57,9 @@ const App = (appProps) => {
               <NavListItem to="/remote-sync/feedback" onClick={handleToggle}>
                 <FormattedMessage id="ui-remote-sync.remote-sync.feedback" />
               </NavListItem>
+              <NavListItem to="/remote-sync/crosswalks" onClick={handleToggle}>
+                <FormattedMessage id="ui-remote-sync.remote-sync.crosswalks" />
+              </NavListItem>
               <NavListItem onClick={() => { shortcutModalToggle(handleToggle); }}>
                  <FormattedMessage id="ui-remote-sync.remote-sync.kbdshortcuts" />
               </NavListItem>
@@ -68,6 +72,7 @@ const App = (appProps) => {
           <Route component={Resources} path={`${path}/resources`} />
           <Route component={Feedback} path={`${path}/feedback`} />
           <Route component={ToDos} path={`${path}/todos`} />
+          <Route component={Crosswalks} path={`${path}/crosswalks`} />
           <Route component={RemoteSyncSummary} path={`${path}`} />
         </Switch>
       </Suspense>
