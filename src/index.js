@@ -4,7 +4,8 @@ import { Switch } from 'react-router-dom';
 import Settings from './settings';
 import RemoteSyncSummary from './components/RemoteSyncView/RemoteSyncSummary';
 import ToDos from './components/ToDos/ToDos';
-import Feedback from './components/Feedback/Feedback';
+import Feedback from './components/Feedback';
+import FeedbackItem from './components/Feedback/FeedbackItem';
 import Resources from './components/Resources/Resources';
 
 import { FormattedMessage } from 'react-intl';
@@ -58,11 +59,16 @@ const App = (appProps) => {
 
         <Switch>
           <Route component={Resources} path={`${path}/resources`} />
-          <Route component={Feedback} path={`${path}/feedback`} />
+          <Route component={Feedback} path={`${path}/feedback`} >
+            <Route component={FeedbackItem} path={`${path}/feedback/:id`} />
+          </Route>
           <Route component={ToDos} path={`${path}/todos`} />
           <Route component={RemoteSyncSummary} path={`${path}`} />
         </Switch>
       </Suspense>
+
+      // TODO set up routes. Allow routes to use common SASQ wrangler?
+      //So feedbackRoute would basically just render SASQRoute and have that set up nested route with options
   );
 };
 
