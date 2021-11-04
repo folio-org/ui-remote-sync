@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import SimpleLookupSASQ from '../SimpleLookupSASQ/SimpleLookupSASQ';
-import FeedbackItem from '../FeedbackItem';
+import FeedbackItem from '../ActionItem';
 import { FormattedMessage } from 'react-intl';
 
 const propTypes = {

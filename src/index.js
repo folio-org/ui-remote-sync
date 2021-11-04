@@ -18,7 +18,9 @@ import {
   NavListItem
 } from '@folio/stripes/components';
 
-import FeedbackRoute from './routes/FeedbackRoute';
+import ActionedRoute from './routes/ActionedRoute';
+import ForActionRoute from './routes/ForActionRoute';
+
 
 const App = (appProps) => {
   const { actAs, match: { path } } = appProps;
@@ -43,10 +45,10 @@ const App = (appProps) => {
               <NavListItem to="/remote-sync/resources" onClick={handleToggle}>
                 <FormattedMessage id="ui-remote-sync.recordList.sourceRecords.title" />
               </NavListItem>
-              <NavListItem to="/remote-sync/todos" onClick={handleToggle}>
+              <NavListItem to="/remote-sync/forAction" onClick={handleToggle}>
                 <FormattedMessage id="ui-remote-sync.recordList.forAction.title" />
               </NavListItem>
-              <NavListItem to="/remote-sync/feedback" onClick={handleToggle}>
+              <NavListItem to="/remote-sync/actioned" onClick={handleToggle}>
                 <FormattedMessage id="ui-remote-sync.recordList.actioned.title" />
               </NavListItem>
               <NavListItem onClick={() => { shortcutModalToggle(handleToggle); }}>
@@ -58,9 +60,9 @@ const App = (appProps) => {
         </AppContextMenu>
 
         <Switch>
-          <FeedbackRoute path={`${path}/feedback`} />
+          <ActionedRoute path={`${path}/actioned`} />
+          <ForActionRoute path={`${path}/forAction`} />
           <Route component={Resources} path={`${path}/resources`} />
-          <Route component={ToDos} path={`${path}/todos`} />
           <Route component={RemoteSyncSummary} path={path} />
         </Switch>
       </Suspense>
