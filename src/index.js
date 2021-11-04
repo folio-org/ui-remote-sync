@@ -41,13 +41,13 @@ const App = (appProps) => {
                  <FormattedMessage id="ui-remote-sync.remote-sync.dashboard" />
               </NavListItem>
               <NavListItem to="/remote-sync/resources" onClick={handleToggle}>
-                <FormattedMessage id="ui-remote-sync.remote-sync.resources" />
+                <FormattedMessage id="ui-remote-sync.recordList.sourceRecords.title" />
               </NavListItem>
               <NavListItem to="/remote-sync/todos" onClick={handleToggle}>
-                <FormattedMessage id="ui-remote-sync.remote-sync.tasks" />
+                <FormattedMessage id="ui-remote-sync.recordList.forAction.title" />
               </NavListItem>
               <NavListItem to="/remote-sync/feedback" onClick={handleToggle}>
-                <FormattedMessage id="ui-remote-sync.remote-sync.feedback" />
+                <FormattedMessage id="ui-remote-sync.recordList.actioned.title" />
               </NavListItem>
               <NavListItem onClick={() => { shortcutModalToggle(handleToggle); }}>
                  <FormattedMessage id="ui-remote-sync.remote-sync.kbdshortcuts" />

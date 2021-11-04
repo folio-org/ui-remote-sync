@@ -2,10 +2,12 @@
   "meta.title": "Remote Sync",
 
   "remote-sync.summary": "Summary",
-  "remote-sync.resources": "Resources",
-  "remote-sync.tasks": "Feedback Needed",
-  "remote-sync.feedback": "Feedback Supplied",
   "remote-sync.dashboard": "Dashboard",
+
+  "recordList.forAction.title": "For action",
+  "recordList.actioned.title": "Actioned",
+  "recordList.sourceRecords.title": "Source records",
+
   "remote-sync.kbdshortcuts": "Keyboard Shortcuts",
 
   "prop.feedback.id": "ID",
@@ -28,4 +30,5 @@
   "settings.secureMode.publicKey": "Secure mode public key",
 
   "settings.settingsSection.definitions": "Definitions"
+
 }
