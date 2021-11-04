@@ -10,8 +10,6 @@ import {
 import { FormattedMessage } from 'react-intl';
 
 
-
-
 /**
  * context: fetcher memo key
  * target: path to okapi module / resource within module eg /mod-remote-sync/feedback

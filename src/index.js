@@ -4,8 +4,6 @@ import { Switch } from 'react-router-dom';
 import Settings from './settings';
 import RemoteSyncSummary from './components/RemoteSyncView/RemoteSyncSummary';
 import ToDos from './components/ToDos/ToDos';
-import Feedback from './components/Feedback';
-import FeedbackItem from './components/Feedback/FeedbackItem';
 import Resources from './components/Resources/Resources';
 
 import { FormattedMessage } from 'react-intl';
@@ -19,6 +17,8 @@ import {
   NavListSection,
   NavListItem
 } from '@folio/stripes/components';
+
+import FeedbackRoute from './routes/FeedbackRoute';
 
 const App = (appProps) => {
   const { actAs, match: { path } } = appProps;
@@ -58,12 +58,10 @@ const App = (appProps) => {
         </AppContextMenu>
 
         <Switch>
+          <FeedbackRoute path={`${path}/feedback`} />
           <Route component={Resources} path={`${path}/resources`} />
-          <Route component={Feedback} path={`${path}/feedback`} >
-            <Route component={FeedbackItem} path={`${path}/feedback/:id`} />
-          </Route>
           <Route component={ToDos} path={`${path}/todos`} />
-          <Route component={RemoteSyncSummary} path={`${path}`} />
+          <Route component={RemoteSyncSummary} path={path} />
         </Switch>
       </Suspense>
 
