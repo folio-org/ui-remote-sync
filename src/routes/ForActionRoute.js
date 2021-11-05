@@ -10,7 +10,7 @@ import ActionItem from '../components/ActionItem';
 
 import resultColumns from '../constants/actionItemsResultColumns';
 
-const ActionedRoute = ({ path }) => {
+const ForActionRoute = ({ path }) => {
 
   const fetchParameters = {
     endpoint: "remote-sync/feedback/todo",
@@ -36,4 +36,4 @@ const ActionedRoute = ({ path }) => {
   );
 };
 
-export default ActionedRoute;
+export default ForActionRoute;
