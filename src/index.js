@@ -5,6 +5,7 @@ import Settings from './settings';
 import RemoteSyncSummary from './components/RemoteSyncView/RemoteSyncSummary';
 import ToDos from './components/ToDos/ToDos';
 import Resources from './components/Resources/Resources';
+import Crosswalks from './components/Crosswalks/Crosswalks';
 
 import { FormattedMessage } from 'react-intl';
 import {
@@ -51,6 +52,9 @@ const App = (appProps) => {
               <NavListItem to="/remote-sync/actioned" onClick={handleToggle}>
                 <FormattedMessage id="ui-remote-sync.recordList.actioned.title" />
               </NavListItem>
+              <NavListItem to="/remote-sync/crosswalks" onClick={handleToggle}>
+                <FormattedMessage id="ui-remote-sync.crosswalks.actioned.title" />
+              </NavListItem>
               <NavListItem onClick={() => { shortcutModalToggle(handleToggle); }}>
                  <FormattedMessage id="ui-remote-sync.remote-sync.kbdshortcuts" />
               </NavListItem>
@@ -64,6 +68,7 @@ const App = (appProps) => {
           <ForActionRoute path={`${path}/forAction`} />
           <Route component={Resources} path={`${path}/resources`} />
           <Route component={RemoteSyncSummary} path={path} />
+          <Route component={Crosswalks} path={`${path}/crosswalks`} />
         </Switch>
       </Suspense>
 
