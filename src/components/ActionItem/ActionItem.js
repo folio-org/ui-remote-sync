@@ -17,10 +17,9 @@ const propTypes = {
 export default function ActionItem({resource, onClose}) {
 
   // If no resource, just null out
-  if (!Object.keys(resource).length) {
+  if (!resource?.id) {
     return null;
   }
-
   /* 
   let feedback_component = null;
 

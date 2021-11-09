@@ -14,6 +14,7 @@ const ActionedRoute = ({ path }) => {
 
   const fetchParameters = {
     endpoint: "remote-sync/feedback/done",
+    itemEndpoint: "remote-sync/feedback",
     SASQ_MAP: {
       searchKey: 'description',
       filterKeys: {
