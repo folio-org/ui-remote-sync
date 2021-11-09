@@ -11,8 +11,7 @@ import TransformationProcessRecord from '../components/TransformationProcessReco
 const SourceRecordsRoute = ({ path }) => {
 
   const fetchParameters = {
-    //endpoint: "remote-sync/records",
-    endpoint: "erm/jobs",
+    endpoint: "remote-sync/records",
     SASQ_MAP: {
       searchKey: 'label',
       filterKeys: {
@@ -20,16 +19,31 @@ const SourceRecordsRoute = ({ path }) => {
     }
   };
 
-  // TODO translations
   const resultColumns = [
-    { propertyPath:"selected", label: ' ' },
-    { propertyPath:"id", label: "id" },
-    // TODO remove
-    { propertyPath:"name", label: "name" },
-    { propertyPath:"label", label: "label" },
-    { propertyPath:"sourceRecordId", label: "Source Record ID" },
-    { propertyPath:"transformationStatus", label: "Transformation Status" },
-    { propertyPath:"processControlStatus", label: "Process Control Status" },
+    {
+      propertyPath:"selected",
+      label: ' '
+    },
+    {
+      propertyPath:"id",
+      label: <FormattedMessage id="ui-remote-sync.prop.sourceRecord.id" />
+    },
+    {
+      propertyPath:"label",
+      label: <FormattedMessage id="ui-remote-sync.prop.sourceRecord.label" />
+    },
+    {
+      propertyPath:"sourceRecordId",
+      label: <FormattedMessage id="ui-remote-sync.prop.sourceRecord.sourceRecordId" />
+    },
+    {
+      propertyPath:"transformationStatus",
+      label: <FormattedMessage id="ui-remote-sync.prop.sourceRecord.transformationStatus" />
+    },
+    {
+      propertyPath:"processControlStatus",
+      label: <FormattedMessage id="ui-remote-sync.prop.sourceRecord.processControlStatus" />
+    },
   ];
 
   return (
