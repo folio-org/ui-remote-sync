@@ -14,8 +14,12 @@ const propTypes = {
   resource: PropTypes.object,
 };
 
-export default function FeedbackItem({resource, closeDetailsHandler} : props) {
+export default function ActionItem({resource, onClose}) {
 
+  // If no resource, just null out
+  if (!resource?.id) {
+    return null;
+  }
   /* 
   let feedback_component = null;
 
@@ -53,7 +57,7 @@ export default function FeedbackItem({resource, closeDetailsHandler} : props) {
         <PaneHeader
           {...renderProps}
           dismissible
-          onClose={closeDetailsHandler}
+          onClose={onClose}
           paneTitle={resource.caseIndicator+" : "+resource.description}
         />
       )}
@@ -64,4 +68,4 @@ export default function FeedbackItem({resource, closeDetailsHandler} : props) {
   );
 }
 
-FeedbackItem.propTypes = propTypes;
+ActionItem.propTypes = propTypes;

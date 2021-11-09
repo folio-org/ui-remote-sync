@@ -2,10 +2,12 @@
   "meta.title": "Remote Sync",
 
   "remote-sync.summary": "Summary",
-  "remote-sync.resources": "Resources",
-  "remote-sync.tasks": "Feedback Needed",
-  "remote-sync.feedback": "Feedback Supplied",
   "remote-sync.dashboard": "Dashboard",
+
+  "recordList.forAction.title": "For action",
+  "recordList.actioned.title": "Actioned",
+  "recordList.sourceRecords.title": "Source records",
+
   "remote-sync.kbdshortcuts": "Keyboard Shortcuts",
 
   "prop.feedback.id": "ID",
@@ -13,6 +15,12 @@
   "prop.feedback.caseIndicator": "Case",
   "prop.feedback.status": "Status",
   "prop.feedback.description": "Description",
+
+  "prop.sourceRecord.id": "Id",
+  "prop.sourceRecord.label": "Label",
+  "prop.sourceRecord.sourceRecordId": "Source record id",
+  "prop.sourceRecord.processControlStatus": "Process control status",
+  "prop.sourceRecord.transformationStatus": "Transformation status",
 
   "settings.settingsSection.lASERIntegration": "LAS:eR integration",
   "settings.lASERIntegration.laserermFOLIOPass": "FOLIO password",
@@ -28,4 +36,5 @@
   "settings.secureMode.publicKey": "Secure mode public key",
 
   "settings.settingsSection.definitions": "Definitions"
+
 }

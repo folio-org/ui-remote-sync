@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import {
   Pane,
@@ -9,7 +9,10 @@ const propTypes = {
   resource: PropTypes.object,
 };
 
-export default function TransformationProcessRecord({resource, closeDetailsHandler} : props) {
+export default function TransformationProcessRecord({
+  onClose,
+  resource
+}) {
 
   // This function really should re-pull the transformation process record with a FULL element set name so that
   // we don't transfer the entire inputDataString for every line in the table
@@ -18,11 +21,11 @@ export default function TransformationProcessRecord({resource, closeDetailsHandl
     if ( resourceLink != null ) {
       result = (
         <span>{resourceLink.folioContext}/{resourceLink.folioId}</span>
-      )
+      );
     }
 
     return result;
-  }
+  };
 
   return (
     <Pane
@@ -30,7 +33,7 @@ export default function TransformationProcessRecord({resource, closeDetailsHandl
         <PaneHeader
           {...renderProps}
           dismissible
-          onClose={closeDetailsHandler}
+          onClose={onClose}
           paneTitle={resource.label != null ? resource.label : resource.sourceRecordId}
         />
       )}
