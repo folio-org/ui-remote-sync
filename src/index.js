@@ -3,8 +3,6 @@ import { Switch } from 'react-router-dom';
 
 import Settings from './settings';
 import RemoteSyncSummary from './components/RemoteSyncView/RemoteSyncSummary';
-import ToDos from './components/ToDos/ToDos';
-import Resources from './components/Resources/Resources';
 
 import { FormattedMessage } from 'react-intl';
 import {
@@ -20,6 +18,7 @@ import {
 
 import ActionedRoute from './routes/ActionedRoute';
 import ForActionRoute from './routes/ForActionRoute';
+import SourceRecordsRoute from './routes/SourceRecordsRoute';
 
 
 const App = (appProps) => {
@@ -42,7 +41,7 @@ const App = (appProps) => {
               <NavListItem to="/remote-sync" onClick={handleToggle}>
                  <FormattedMessage id="ui-remote-sync.remote-sync.dashboard" />
               </NavListItem>
-              <NavListItem to="/remote-sync/resources" onClick={handleToggle}>
+              <NavListItem to="/remote-sync/sourceRecords" onClick={handleToggle}>
                 <FormattedMessage id="ui-remote-sync.recordList.sourceRecords.title" />
               </NavListItem>
               <NavListItem to="/remote-sync/forAction" onClick={handleToggle}>
@@ -62,13 +61,10 @@ const App = (appProps) => {
         <Switch>
           <ActionedRoute path={`${path}/actioned`} />
           <ForActionRoute path={`${path}/forAction`} />
-          <Route component={Resources} path={`${path}/resources`} />
+          <SourceRecordsRoute path={`${path}/sourceRecords`} />
           <Route component={RemoteSyncSummary} path={path} />
         </Switch>
       </Suspense>
-
-      // TODO set up routes. Allow routes to use common SASQ wrangler?
-      //So feedbackRoute would basically just render SASQRoute and have that set up nested route with options
   );
 };
 

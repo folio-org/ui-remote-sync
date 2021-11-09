@@ -14,7 +14,7 @@ const propTypes = {
   resource: PropTypes.object,
 };
 
-export default function FeedbackItem({resource, onClose}) {
+export default function ActionItem({resource, onClose}) {
 
   // If no resource, just null out
   if (!Object.keys(resource).length) {
@@ -69,4 +69,4 @@ export default function FeedbackItem({resource, onClose}) {
   );
 }
 
-FeedbackItem.propTypes = propTypes;
+ActionItem.propTypes = propTypes;
