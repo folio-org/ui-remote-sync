@@ -5,7 +5,7 @@ import {
   AppIcon
 } from '@folio/stripes/core';
 
-import SASQRoute from '@k-int/stripes-kint-components/src/lib/SASQRoute/SASQRoute';
+import { SASQRoute } from '@k-int/stripes-kint-components';
 import TransformationProcessRecord from '../components/TransformationProcessRecord';
 
 const SourceRecordsRoute = ({ path }) => {
