@@ -1,9 +1,6 @@
 {
     "meta.title": "مزامنة عن بعد",
     "remote-sync.summary": "ملخص",
-    "remote-sync.tasks": "التغذية الراجعة مطلوبة",
-    "remote-sync.feedback": "تم توفير التغذية الراجعة",
-    "remote-sync.resources": "الموارد",
     "prop.feedback.id": "المعرّف",
     "prop.feedback.correlationId": "معرف الارتباط",
     "prop.feedback.caseIndicator": "الحالة",
@@ -22,5 +19,13 @@
     "settings.settingsSection.secureMode": "الوضع الآمن",
     "settings.secureMode.enabled": "تم تفعيل الوضع الآمن",
     "settings.secureMode.publicKey": "المفتاح العام للوضع الآمن",
-    "settings.settingsSection.definitions": "تعريفات"
+    "settings.settingsSection.definitions": "تعريفات",
+    "recordList.forAction.title": "لاتخاذ إجراء",
+    "recordList.actioned.title": "تم اتخاذ إجراء",
+    "recordList.sourceRecords.title": "تسجيلات المصدر",
+    "prop.sourceRecord.id": "معرّف",
+    "prop.sourceRecord.label": "تسمية",
+    "prop.sourceRecord.sourceRecordId": "معرّف تسجيلة المصدر",
+    "prop.sourceRecord.processControlStatus": "Process control status",
+    "prop.sourceRecord.transformationStatus": "حالة التحويل"
 }
