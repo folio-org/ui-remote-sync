@@ -62,6 +62,8 @@ export default function RemoteSyncSummary({}) {
           return (
             <div id={extractor.id} style={boxStyle} key={extractor.id}>
               <h3>{extractor.name}</h3> ( {extractor.status} )
+              Next Due: {extractor.nextDueString}<br/>
+              Remaining: {extractor.timeRemaining}
             </div>
           ) 
         })
@@ -92,8 +94,8 @@ export default function RemoteSyncSummary({}) {
               <h3>{datarow.sourceName} ({datarow.status})</h3>
               enabled: {datarow.enabled ? 'true' : 'false' } <br/>
               Record Count: {datarow.recordCount} <br/>
-              Some info about source one<br/>
-              PLAY | PAUSE | OTHER
+              Next Due: {datarow.nextDueString} <br/>
+              Remaining: {datarow.remaining}
             </div>
           </Col>
           <Col>{extractors}</Col>
