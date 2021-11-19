@@ -26,6 +26,6 @@
     "prop.sourceRecord.id": "معرّف",
     "prop.sourceRecord.label": "تسمية",
     "prop.sourceRecord.sourceRecordId": "معرّف تسجيلة المصدر",
-    "prop.sourceRecord.processControlStatus": "Process control status",
+    "prop.sourceRecord.processControlStatus": "معالجة حالة التحكم",
     "prop.sourceRecord.transformationStatus": "حالة التحويل"
 }
