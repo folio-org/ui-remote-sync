@@ -65,7 +65,8 @@ export default function ManualResourceMappingCase({resource, question, answer}:p
   }
 
 
-  const registry_entry = Registry.getResource('license');
+  // const registry_entry = Registry.getResource('license');
+  const registry_entry = Registry.getResource(question?.folioResourceType);
   const LookupComponent = registry_entry ? registry_entry.getLookupComponent() : null;
 
   console.log("Registry entry: %o, lookup_component: %o",registry_entry,LookupComponent);
