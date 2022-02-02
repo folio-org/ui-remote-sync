@@ -56,7 +56,9 @@ export default function ValueMappingCase({resource, question, answer}:props) {
   return (
     <div>
       <h2>Map a reference value</h2>
-      <p>{JSON.stringify(question)}</p>
+      <p>{question?.prompt}<br/>
+         Source context: {question?.context}<br/>
+         Target context: {question?.target_context}</p>
       <form>
         <table width="100%" style={{border: "1px solid black"}}>
           <thead>

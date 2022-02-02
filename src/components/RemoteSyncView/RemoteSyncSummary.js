@@ -32,16 +32,22 @@ export default function RemoteSyncSummary({}) {
     ['ui-remote-sync', 'summary'],
     async () => {
       // Actually wait for the data to come back.
-      const sync_status_report = await ky("remote-sync/statusReport").json();
+      const sync_status_report = await ky("remote-sync/extendedStatusReport").json();
       console.log("Got status report %o",sync_status_report);
       return sync_status_report;
     }
   );
 
-  const triggerSync = () => {
+  const triggerSync = (fullHarvest, reprocess) => {
     console.log("triggerSync");
     let trigger_worker_get = async () => {
-      const json = await ky.get('remote-sync/settings/worker').json();
+      const json = await ky.get('remote-sync/settings/worker',
+                                {
+                                  searchParams:{
+                                    'fullHarvest':fullHarvest ? 'Y' : 'N',
+                                    'reprocess':reprocess ? 'Y' : 'N'
+                                  }
+                                }).json();
       return json
     }
 
@@ -52,8 +58,8 @@ export default function RemoteSyncSummary({}) {
   let arrows =[]
 
   
-  if ( data != null ) {
-    grid_rows = data.map( datarow => {
+  if ( ( data != null ) && ( data.processes != null ) ) {
+    grid_rows = data.processes.map( datarow => {
 
       // Pull out the extractors
       let extractors = null;
@@ -61,9 +67,9 @@ export default function RemoteSyncSummary({}) {
         extractors = datarow.extractors.map ( extractor => {
           return (
             <div id={extractor.id} style={boxStyle} key={extractor.id}>
-              <h3>{extractor.name}</h3> ( {extractor.status} )
+              <h3>{extractor.name} ( {extractor.status} )</h3>
               Next Due: {extractor.nextDueString}<br/>
-              Remaining: {extractor.timeRemaining}
+              Remaining: {extractor.timeRemaining}ms<br/>
             </div>
           ) 
         })
@@ -95,7 +101,7 @@ export default function RemoteSyncSummary({}) {
               enabled: {datarow.enabled ? 'true' : 'false' } <br/>
               Record Count: {datarow.recordCount} <br/>
               Next Due: {datarow.nextDueString} <br/>
-              Remaining: {datarow.remaining}
+              Remaining: {datarow.timeRemaining}ms <br/>
             </div>
           </Col>
           <Col>{extractors}</Col>
@@ -105,7 +111,7 @@ export default function RemoteSyncSummary({}) {
     })
 
     // Collect arrows
-    data.forEach ( ds => {
+    data.processes.forEach ( ds => {
       ds.extractors.forEach ( ext => {
         arrows.push( <Xarrow key={ds.id+':'+ext.id} start={ds.id} end={ext.id} color="green" headSize={3} dashness={animationStyle} /> )
         arrows.push( <Xarrow key={ext.id+':'+ext.target} start={ext.id} end={ext.target} color="green" headSize={3} dashness={animationStyle} /> )
@@ -120,7 +126,8 @@ export default function RemoteSyncSummary({}) {
 
   return (
     <div>
-      <Button onClick={() => triggerSync()}>Trigger Sync</Button>
+      <Button onClick={() => triggerSync(false, false)}>Trigger Sync</Button> &nbsp;
+      <Button onClick={() => triggerSync(false, true)}>Trigger Sync (Full Reprocess)</Button> <br/>
       <Grid fluid>
         {grid_rows}
         {arrows}

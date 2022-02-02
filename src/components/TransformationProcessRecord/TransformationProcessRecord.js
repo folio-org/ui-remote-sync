@@ -2,8 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {
   Pane,
-  PaneHeader
+  PaneHeader,
+  Button
 } from '@folio/stripes/components';
+import { useOkapiKy } from '@folio/stripes/core';
 
 const propTypes = {
   resource: PropTypes.object,
@@ -13,6 +15,8 @@ export default function TransformationProcessRecord({
   onClose,
   resource
 }) {
+
+  const ky = useOkapiKy();
 
   // This function really should re-pull the transformation process record with a FULL element set name so that
   // we don't transfer the entire inputDataString for every line in the table
@@ -26,6 +30,38 @@ export default function TransformationProcessRecord({
 
     return result;
   };
+
+
+  // If the user requests the full record (This may be large - for example LASER subscrptions contain title lists) then
+  // re-request the transformation record using setname=full which gives us the full record that includes a string encoding
+  // of the source record. Once we have that simulate the user clicking a download link for a pseudo file
+  const getSourceData = () => {
+    console.log("triggerSync");
+    var testdata="{'field':'hello'}";
+
+    console.log("Get source record");
+
+    ky("remote-sync/records/"+resource.id+"?setname=full").then (
+      ( record ) => {
+        record.json().then (
+          ( json_record ) => {
+            const blob = new Blob([json_record.inputDataString], { type: 'application/json' })
+            // Create an anchor element and dispatch a click event on it
+            // to trigger a download
+            const a = document.createElement('a')
+            a.download =''+resource.sourceRecordId;
+            a.href = window.URL.createObjectURL(blob)
+            const clickEvt = new MouseEvent('click', {
+              view: window,
+              bubbles: true,
+              cancelable: true,
+            })
+            a.dispatchEvent(clickEvt)
+            a.remove()
+          });
+      }
+    );
+  }
 
   return (
     <Pane
@@ -43,7 +79,7 @@ export default function TransformationProcessRecord({
           <tr><td>label</td><td>{resource.label}</td></tr>
           <tr><td>processControlStatus</td><td>{resource.processControlStatus}</td></tr>
           <tr><td>transformationStatus</td><td>{resource.transformationStatus}</td></tr>
-          <tr><td>sourceRecordId</td><td>{resource.sourceRecordId}</td></tr>
+          <tr><td>sourceRecordId</td><td>{resource.sourceRecordId} <Button onClick={() => getSourceData()}>Source Data</Button></td></tr>
           <tr><td>last processing attempt</td><td>{resource.lastProcessAttempt}</td></tr>
           <tr><td>last success</td><td>{resource.lastProcessComplete}</td></tr>
           <tr><td>Status Report</td><td>
@@ -59,7 +95,6 @@ export default function TransformationProcessRecord({
             </table>
           </td></tr>
           <tr><td>Corresponding Resource</td><td>{folioResourceLink(resource.correspondingResource)}</td></tr>
-          <tr><td>Data</td><td>{resource.inputDataString}</td></tr>
         </tbody>
       </table>
     </Pane>

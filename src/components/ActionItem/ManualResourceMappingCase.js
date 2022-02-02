@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { useOkapiKy } from '@folio/stripes/core';
 import { Registry } from '@folio/handler-stripes-registry';
 import {
   Button
 } from '@folio/stripes/components';
-
+import { CalloutContext } from '@folio/stripes/core';
 
 const propTypes = {
   resource: PropTypes.object,
@@ -21,6 +21,7 @@ export default function ManualResourceMappingCase({resource, question, answer}:p
   const [answerData, setAnswerData] = useState(parsed_response ? parsed_response : {} );
  
   const ky = useOkapiKy();
+  const callout  = useContext(CalloutContext);
 
   const selectAnswerType = (answerType) => {
     // answerData.answerType=answerType;
@@ -54,7 +55,9 @@ export default function ManualResourceMappingCase({resource, question, answer}:p
       const json = await ky.put('remote-sync/feedback/'+resource.id, {json: data_to_send}).json();
       return json
     }
-    post_feedback_request(feedback_response).then(console.log)
+    post_feedback_request(feedback_response).then( () => {
+      callout.sendCallout({ message: 'Resource mapping feedback saved' });
+    });
   }
 
   const onResourceSelected = (r) => {
