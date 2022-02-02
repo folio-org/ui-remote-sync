@@ -12,7 +12,7 @@ const propTypes = {
 };
 
 
-export default function ValueMappingCase({resource, question, answer}:props) {
+export default function ValueMappingCase({resource, question, answer}) {
 
   const parsed_response = resource.response && JSON.parse(resource.response)
 
