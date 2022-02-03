@@ -4,6 +4,7 @@ import { Pane, PaneHeader, Button } from '@folio/stripes/components';
 import { useOkapiKy } from '@folio/stripes/core';
 
 const propTypes = {
+  onClose: PropTypes.function,
   resource: PropTypes.object,
 };
 
@@ -29,15 +30,10 @@ export default function TransformationProcessRecord({ onClose, resource }) {
   // re-request the transformation record using setname=full which gives us the full record that includes a string encoding
   // of the source record. Once we have that simulate the user clicking a download link for a pseudo file
   const getSourceData = () => {
-    console.log('triggerSync');
-    var testdata = "{'field':'hello'}";
-
-    console.log('Get source record');
-
     ky('remote-sync/records/' + resource.id + '?setname=full').then(
       (record) => {
-        record.json().then((json_record) => {
-          const blob = new Blob([json_record.inputDataString], {
+        record.json().then((jsonRecord) => {
+          const blob = new Blob([jsonRecord.inputDataString], {
             type: 'application/json',
           });
           // Create an anchor element and dispatch a click event on it

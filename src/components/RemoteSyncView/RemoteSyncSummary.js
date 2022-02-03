@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import { Grid, Row, Col } from '@folio/stripes/components';
+import React from 'react';
+import { Grid, Row, Col, Button } from '@folio/stripes/components';
 import Xarrow from 'react-xarrows';
 import { useOkapiKy } from '@folio/stripes/core';
-import { useQuery, useMutation } from 'react-query';
-import { Button } from '@folio/stripes/components';
+import { useQuery } from 'react-query';
 
 const propTypes = {};
 
@@ -21,25 +19,24 @@ const animationStyle = {
 
 // See https://github.com/folio-org/ui-dashboard/blob/master/src/routes/DashboardRoute.js#L26-L34
 
-export default function RemoteSyncSummary({}) {
+export default function RemoteSyncSummary() {
   const ky = useOkapiKy();
 
   // const { data: { 0: summary } = [], isLoading: summaryLoading, refetch: refetchSummary } = useQuery(
-  const { data, isLoading, refetch } = useQuery(
+  // const { data, isLoading, refetch } = useQuery(
+  const { data } = useQuery(
     ['ui-remote-sync', 'summary'],
     async () => {
       // Actually wait for the data to come back.
-      const sync_status_report = await ky(
+      const syncStatusReport = await ky(
         'remote-sync/extendedStatusReport'
       ).json();
-      console.log('Got status report %o', sync_status_report);
-      return sync_status_report;
+      return syncStatusReport;
     }
   );
 
   const triggerSync = (fullHarvest, reprocess) => {
-    console.log('triggerSync');
-    let trigger_worker_get = async () => {
+    const triggerWorkerGet = async () => {
       const json = await ky
         .get('remote-sync/settings/worker', {
           searchParams: {
@@ -51,20 +48,21 @@ export default function RemoteSyncSummary({}) {
       return json;
     };
 
-    trigger_worker_get().then(console.log);
+    // triggerWorkerGet().then(console.log);
+    triggerWorkerGet();
   };
 
-  let grid_rows = [];
-  let arrows = [];
+  let gridRows = [];
+  const arrows = [];
 
   if (data != null && data.processes != null) {
-    grid_rows = data.processes.map((datarow) => {
+    gridRows = data.processes.map((datarow) => {
       // Pull out the extractors
       let extractors = null;
       if (datarow.extractors != null) {
         extractors = datarow.extractors.map((extractor) => {
           return (
-            <div id={extractor.id} style={boxStyle} key={extractor.id}>
+            <div key={extractor.id} id={extractor.id} style={boxStyle}>
               <h3>
                 {extractor.name} ( {extractor.status} )
               </h3>
@@ -81,7 +79,7 @@ export default function RemoteSyncSummary({}) {
       if (datarow.processes != null) {
         processes = datarow.processes.map((process) => {
           return (
-            <div id={process.id} style={boxStyle} key={process.id}>
+            <div key={process.id} id={process.id} style={boxStyle}>
               <h3>{process.name}</h3>
               <ul>
                 {process.recordCounts.map((rc) => (
@@ -110,7 +108,7 @@ export default function RemoteSyncSummary({}) {
           </Col>
           <Col>{extractors}</Col>
           <Col>{processes}</Col>
-          <Col></Col>
+          <Col />
         </Row>
       );
     });
@@ -121,27 +119,27 @@ export default function RemoteSyncSummary({}) {
         arrows.push(
           <Xarrow
             key={ds.id + ':' + ext.id}
-            start={ds.id}
-            end={ext.id}
             color="green"
-            headSize={3}
             dashness={animationStyle}
+            end={ext.id}
+            headSize={3}
+            start={ds.id}
           />
         );
         arrows.push(
           <Xarrow
             key={ext.id + ':' + ext.target}
-            start={ext.id}
-            end={ext.target}
             color="green"
-            headSize={3}
             dashness={animationStyle}
+            end={ext.target}
+            headSize={3}
+            start={ext.id}
           />
         );
       });
     });
   } else {
-    console.log('No data...');
+    // console.log('No data...');
   }
 
   return (
@@ -153,7 +151,7 @@ export default function RemoteSyncSummary({}) {
       </Button>{' '}
       <br />
       <Grid fluid>
-        {grid_rows}
+        {gridRows}
         {arrows}
       </Grid>
     </div>

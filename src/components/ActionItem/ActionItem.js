@@ -7,6 +7,7 @@ import ManualResourceMappingCase from './ManualResourceMappingCase';
 import ValueMappingCase from './ValueMappingCase';
 
 const propTypes = {
+  onClose: PropTypes.function,
   resource: PropTypes.object,
 };
 
@@ -15,7 +16,7 @@ export default function ActionItem({ resource, onClose }) {
   if (!resource?.id) {
     return null;
   }
-  /* 
+  /*
   let feedback_component = null;
 
   switch ( resource.caseIndicator ) {
@@ -28,8 +29,8 @@ export default function ActionItem({ resource, onClose }) {
   }
   */
 
-  let question = JSON.parse(resource.question);
-  let answer = resource.answer ? JSON.parse(resource.question) : {};
+  const question = JSON.parse(resource.question);
+  const answer = resource.answer ? JSON.parse(resource.question) : {};
 
   let FeedbackComponent = null;
 
@@ -57,9 +58,9 @@ export default function ActionItem({ resource, onClose }) {
       )}
     >
       <FeedbackComponent
-        resource={resource}
-        question={question}
         answer={answer}
+        question={question}
+        resource={resource}
       />
     </Pane>
   );

@@ -6,51 +6,50 @@ import { Button } from '@folio/stripes/components';
 const propTypes = {
   resource: PropTypes.object,
   question: PropTypes.object,
-  answer: PropTypes.object,
 };
 
-export default function ValueMappingCase({ resource, question, answer }) {
-  const parsed_response = resource.response && JSON.parse(resource.response);
+export default function ValueMappingCase({ resource, question }) {
+  const parsedResponse = resource.response && JSON.parse(resource.response);
 
   const [answerData, setAnswerData] = useState(
-    parsed_response ? parsed_response : {}
+    parsedResponse || {}
   );
 
   const ky = useOkapiKy();
 
-  //const setMappedResource = (mappedResource) => {
+  // const setMappedResource = (mappedResource) => {
   //  setAnswerData(prevState => ({...prevState, mappedResource: mappedResource }));
-  //}
+  // }
 
   const selectAnswerType = (answerType) => {
     // answerData.answerType=answerType;
-    console.log('select answer type answerData is now', answerData);
-    setAnswerData((prevState) => ({ ...prevState, answerType: answerType }));
+    // console.log('select answer type answerData is now', answerData);
+    setAnswerData((prevState) => ({ ...prevState, answerType }));
   };
 
   const saveFeedback = (event) => {
-    console.log('Save feedback %o', answerData);
+    // console.log('Save feedback %o', answerData);
     event.preventDefault();
 
-    let feedback_response = {
+    const feedbackResponse = {
       id: resource.id,
       status: 1,
       response: JSON.stringify(answerData),
     };
 
-    console.log('post to /remote-sync/feedback values %o', feedback_response);
+    // console.log('post to /remote-sync/feedback values %o', feedbackResponse);
 
     // We need to post to /remote-sync/feedback/{id}
     // JSON: { id:{id},
     //         response: stringified-answer }
-    let post_feedback_request = async (data_to_send) => {
-      console.log('Post %o', data_to_send);
+    const postFeedbackRequest = async (dataToSend) => {
+      // console.log('Post %o', dataToSend);
       const json = await ky
-        .put('remote-sync/feedback/' + resource.id, { json: data_to_send })
+        .put('remote-sync/feedback/' + resource.id, { json: dataToSend })
         .json();
       return json;
     };
-    post_feedback_request(feedback_response).then(console.log);
+    postFeedbackRequest(feedbackResponse); // .then(console.log);
   };
 
   return (
@@ -64,29 +63,29 @@ export default function ValueMappingCase({ resource, question, answer }) {
         Target context: {question?.target_context}
       </p>
       <form>
-        <table width="100%" style={{ border: '1px solid black' }}>
+        <table style={{ border: '1px solid black' }} width="100%">
           <thead>
             <tr>
               <td align="center">
                 Map Existing
                 <br />{' '}
                 <input
-                  type="radio"
-                  name="answer"
-                  value="map"
-                  onClick={() => selectAnswerType('map')}
                   checked={answerData.answerType === 'map'}
+                  name="answer"
+                  onClick={() => selectAnswerType('map')}
+                  type="radio"
+                  value="map"
                 />
               </td>
               <td align="center">
                 Ignore
                 <br />{' '}
                 <input
-                  type="radio"
-                  name="answer"
-                  value="ignore"
-                  onClick={() => selectAnswerType('ignore')}
                   checked={answerData.answerType === 'ignore'}
+                  name="answer"
+                  onClick={() => selectAnswerType('ignore')}
+                  type="radio"
+                  value="ignore"
                 />
               </td>
             </tr>
@@ -94,12 +93,12 @@ export default function ValueMappingCase({ resource, question, answer }) {
           <tbody>
             <tr>
               <td colSpan="3">
-                {answerData.answerType == 'map' && (
+                {answerData.answerType === 'map' && (
                   <>
-                    {question.prompt} : <input type="text" name="mappedValue" />
+                    {question.prompt} : <input name="mappedValue" type="text" />
                   </>
                 )}
-                {answerData.answerType == 'ignore' && (
+                {answerData.answerType === 'ignore' && (
                   <p>This item will be ignored indefinitely</p>
                 )}
               </td>
@@ -107,7 +106,7 @@ export default function ValueMappingCase({ resource, question, answer }) {
           </tbody>
         </table>
         <br />
-        <Button type="submit" onClick={saveFeedback}>
+        <Button onClick={saveFeedback} type="submit">
           Save Feedback
         </Button>
       </form>
