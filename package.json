@@ -13,7 +13,8 @@
     "build": "stripes build --output ./output",
     "lint": "eslint .",
     "test": "yarn run test:unit",
-    "test:unit": "jest --ci --coverage && yarn run test:unit:report",
+    "test:jest": "jest --ci --coverage",
+    "test:unit": "yarn run test:jest && yarn run test:unit:report",
     "test:unit:report": "cp -r ./artifacts/coverage-jest ./artifacts/coverage"
   },
   "stripes": {
