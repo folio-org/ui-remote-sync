@@ -9,9 +9,7 @@ describe('ActionItem', () => {
 
     const r = null;
 
-    renderWithIntl(
-      <ActionItem resource={r}/>
-    );
+    renderWithIntl(<ActionItem resource={r} />);
 
     // @sam - please help me fill this out
     expect(1).toBe(1);

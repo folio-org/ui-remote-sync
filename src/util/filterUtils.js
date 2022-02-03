@@ -7,10 +7,13 @@ export function buildFilterString(activeFilters) {
   const newFiltersString = Object.keys(activeFilters)
     .filter((filterName) => Array.isArray(activeFilters[filterName]) && activeFilters[filterName].length)
     .map((filterName) => {
-      return activeFilters[filterName].map((filterValue) => {
-        return `${filterName}.${filterValue}`;
-      }).join(',');
-    }).join(',');
+      return activeFilters[filterName]
+        .map((filterValue) => {
+          return `${filterName}.${filterValue}`;
+        })
+        .join(',');
+    })
+    .join(',');
 
   return newFiltersString;
 }
@@ -28,7 +31,7 @@ export function filterStringToObject(str) {
   if (!str) return {};
   const filterObject = {};
   const filterArray = str.split(',');
-  filterArray.forEach(f => {
+  filterArray.forEach((f) => {
     const [filterName, ...rest] = f.split('.');
     const filterValue = rest.join('.'); // support both filterName.value and filterName.value.with.dot
 
