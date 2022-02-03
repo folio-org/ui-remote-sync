@@ -4,7 +4,7 @@ import { Pane, PaneHeader, Button } from '@folio/stripes/components';
 import { useOkapiKy } from '@folio/stripes/core';
 
 const propTypes = {
-  onClose: PropTypes.function,
+  onClose: PropTypes.func,
   resource: PropTypes.object,
 };
 

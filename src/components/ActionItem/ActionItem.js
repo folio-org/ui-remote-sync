@@ -7,7 +7,7 @@ import ManualResourceMappingCase from './ManualResourceMappingCase';
 import ValueMappingCase from './ValueMappingCase';
 
 const propTypes = {
-  onClose: PropTypes.function,
+  onClose: PropTypes.func,
   resource: PropTypes.object,
 };
 

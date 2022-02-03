@@ -8,8 +8,9 @@ describe('ActionItem', () => {
     // const { getByText } = renderWithIntl(
 
     const r = null;
+    const onClose = () => {};
 
-    renderWithIntl(<ActionItem resource={r} />);
+    renderWithIntl(<ActionItem onClose={onClose} resource={r} />);
 
     // @sam - please help me fill this out
     expect(1).toBe(1);
