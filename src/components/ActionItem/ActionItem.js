@@ -1,26 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  Pane,
-  PaneHeader
-} from '@folio/stripes/components';
+import { Pane, PaneHeader } from '@folio/stripes/components';
 
 import UnhandledFeedbackCase from './UnhandledFeedbackCase';
 import ManualResourceMappingCase from './ManualResourceMappingCase';
 import ValueMappingCase from './ValueMappingCase';
 
-
 const propTypes = {
+  onClose: PropTypes.func,
   resource: PropTypes.object,
 };
 
-export default function ActionItem({resource, onClose}) {
-
+export default function ActionItem({ resource, onClose }) {
   // If no resource, just null out
   if (!resource?.id) {
     return null;
   }
-  /* 
+  /*
   let feedback_component = null;
 
   switch ( resource.caseIndicator ) {
@@ -33,37 +29,39 @@ export default function ActionItem({resource, onClose}) {
   }
   */
 
-  let question = JSON.parse(resource.question)
-  let answer = resource.answer ? JSON.parse(resource.question) : {};
+  const question = JSON.parse(resource.question);
+  const answer = resource.answer ? JSON.parse(resource.question) : {};
 
-  let FeedbackComponent = null
+  let FeedbackComponent = null;
 
-  switch ( resource.caseIndicator ) {
+  switch (resource.caseIndicator) {
     case 'MANUAL-RESOURCE-MAPPING':
-      FeedbackComponent = ManualResourceMappingCase
+      FeedbackComponent = ManualResourceMappingCase;
       break;
     case 'MANUAL-VALUE-MAPPING':
-      FeedbackComponent = ValueMappingCase
+      FeedbackComponent = ValueMappingCase;
       break;
     default:
-      FeedbackComponent = UnhandledFeedbackCase
+      FeedbackComponent = UnhandledFeedbackCase;
       break;
   }
 
-
   return (
     <Pane
-      renderHeader={renderProps => (
+      renderHeader={(renderProps) => (
         <PaneHeader
           {...renderProps}
           dismissible
           onClose={onClose}
-          paneTitle={resource.caseIndicator+" : "+resource.description}
+          paneTitle={resource.caseIndicator + ' : ' + resource.description}
         />
       )}
-
     >
-      <FeedbackComponent resource={resource} question={question} answer={answer}/>
+      <FeedbackComponent
+        answer={answer}
+        question={question}
+        resource={resource}
+      />
     </Pane>
   );
 }

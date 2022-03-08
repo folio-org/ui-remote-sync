@@ -1,10 +1,6 @@
 // File copied from https://github.com/folio-org/stripes-smart-components/blob/master/lib/SearchAndSort/buildUrl.js
 import queryString from 'query-string';
-import {
-  unset,
-  isEmpty,
-  forOwn,
-} from 'lodash';
+import { unset, isEmpty, forOwn } from 'lodash';
 
 function getLocationQuery(location) {
   return location.query ? location.query : queryString.parse(location.search);

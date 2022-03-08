@@ -12,9 +12,11 @@ const RemoteSyncSettings = (props) => {
   const persistentPages = [
     {
       route: 'definitions',
-      label: intl.formatMessage({ id: 'ui-remote-sync.settings.settingsSection.definitions' }),
-      component: () => <DefinitionsPage sectionName="Definitions" />
-    }
+      label: intl.formatMessage({
+        id: 'ui-remote-sync.settings.settingsSection.definitions',
+      }),
+      component: () => <DefinitionsPage sectionName="Definitions" />,
+    },
   ];
 
   const { isLoading, SettingsComponent } = useSettings({
@@ -22,25 +24,21 @@ const RemoteSyncSettings = (props) => {
     intlKey: 'ui-remote-sync',
     persistentPages,
     refdataEndpoint: 'remote-sync/refdata',
-    settingEndpoint: 'remote-sync/settings/appSettings'
+    settingEndpoint: 'remote-sync/settings/appSettings',
   });
 
   if (isLoading) {
     return null;
   }
 
-  return (
-    <SettingsComponent
-      {...props}
-    />
-  );
+  return <SettingsComponent {...props} />;
 };
 
 RemoteSyncSettings.propTypes = {
   resources: PropTypes.shape({
     settings: PropTypes.shape({
-      records: PropTypes.array
-    })
+      records: PropTypes.instanceOf(Array)
+    }),
   }),
   intl: PropTypes.shape({
     formatMessage: PropTypes.func.isRequired,

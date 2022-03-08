@@ -1,1 +1,1 @@
-export { default } from './RemoteSyncView';
+export { default } from './RemoteSyncSummary';

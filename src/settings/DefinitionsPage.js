@@ -1,18 +1,12 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import {
   Button,
-  Checkbox,
-  Layout,
-  List,
   Pane,
 } from '@folio/stripes/components';
 import { FormattedMessage } from 'react-intl';
 import { useOkapiKy } from '@folio/stripes/core';
 
-
-export default function DefinitionsPage({}) {
-
+export default function DefinitionsPage() {
   const ky = useOkapiKy();
   const [definitionsUrl, setDefinitionsURL] = useState();
   const [uploadResult, setUploadResult] = useState();
@@ -31,34 +25,43 @@ export default function DefinitionsPage({}) {
         <FormattedMessage id="stripes-core.button.save" />
       </Button>
     );
-  }
-
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    console.log("submit2 %s", definitionsUrl);
-    let config_call = async (url_to_submit) => {
-      console.log("Post to....%s",url_to_submit);
-      const json = await ky.post('remote-sync/settings/configureFromRegister', {json: {url: url_to_submit}}).json();
-      setUploadResult(json);
-    }
-    config_call(definitionsUrl);
-  }
-
-  const formStyle = {
-    width: "100%"
   };
 
-  var ctr=0;
-  const upload_status_report = uploadResult?.status != null && <div>
-    <h1>Upload Status : {uploadResult.status}</h1>
-    <ul>
-      { uploadResult?.messages?.map((m) => <li key={'message-'+(ctr++)}>{m}</li>) }
-    </ul>
-  </div>
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const configCall = async (urlToSubmit) => {
+      const json = await ky
+        .post('remote-sync/settings/configureFromRegister', {
+          json: { url: urlToSubmit },
+        })
+        .json();
+      setUploadResult(json);
+    };
+    configCall(definitionsUrl);
+  };
 
+  const formStyle = {
+    width: '100%',
+  };
+
+  let ctr = 0;
+  const uploadStatusReport = uploadResult?.status != null && (
+    <div>
+      <h1>Upload Status : {uploadResult.status}</h1>
+      <ul>
+        {uploadResult?.messages?.map((m) => (
+          <li key={'message-' + ctr++}>{m}</li>
+        ))}
+      </ul>
+    </div>
+  );
 
   return (
-    <form id="remote-sync-settings-definitions-form" onSubmit={handleSubmit} style={formStyle}>
+    <form
+      id="remote-sync-settings-definitions-form"
+      onSubmit={handleSubmit}
+      style={formStyle}
+    >
       <Pane
         defaultWidth="fill"
         fluidContentWidth
@@ -66,8 +69,14 @@ export default function DefinitionsPage({}) {
         lastMenu={getLastMenu()}
         paneTitle="Definitions"
       >
-        URL of new or updated definitions: <input type="text" name="definitionsURL" onChange={e => setDefinitionsURL(e.target.value)} /><br/>
-        {upload_status_report}
+        URL of new or updated definitions:{' '}
+        <input
+          name="definitionsURL"
+          onChange={(e) => setDefinitionsURL(e.target.value)}
+          type="text"
+        />
+        <br />
+        {uploadStatusReport}
       </Pane>
     </form>
   );
