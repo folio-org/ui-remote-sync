@@ -25,7 +25,7 @@
     "recordList.sourceRecords.title": "Registros fonte",
     "prop.sourceRecord.id": "Id",
     "prop.sourceRecord.label": "Etiqueta",
-    "prop.sourceRecord.sourceRecordId": "Source record id",
+    "prop.sourceRecord.sourceRecordId": "ID do registro fonte",
     "prop.sourceRecord.processControlStatus": "Status de controle de processo",
     "prop.sourceRecord.transformationStatus": "Status de transformação"
 }
