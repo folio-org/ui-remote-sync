@@ -15,9 +15,15 @@ export default function ManualResourceMappingCase({
 }) {
   const parsedResponse = resource.response && JSON.parse(resource.response);
 
+  // initialise answer data to an empty map
   const [answerData, setAnswerData] = useState(
-    parsedResponse || {}
+    // parsedResponse || {}
+    {}
   );
+
+  // Initialise - because this component may be left in place we overwrite the answer data state with
+  // the currently selected row response, or empty if the parsedResponse is null (not yet set)
+  setAnswerData(parsedResponse || {});
 
   const ky = useOkapiKy();
   const callout = useContext(CalloutContext);
@@ -59,6 +65,7 @@ export default function ManualResourceMappingCase({
         .json();
       return json;
     };
+
     postFeedbackRequest(feedbackResponse).then(() => {
       callout.sendCallout({ message: 'Resource mapping feedback saved' });
     });
