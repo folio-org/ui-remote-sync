@@ -17,13 +17,8 @@ export default function ManualResourceMappingCase({
 
   // initialise answer data to an empty map
   const [answerData, setAnswerData] = useState(
-    // parsedResponse || {}
-    {}
+    parsedResponse || {}
   );
-
-  // Initialise - because this component may be left in place we overwrite the answer data state with
-  // the currently selected row response, or empty if the parsedResponse is null (not yet set)
-  setAnswerData(parsedResponse || {});
 
   const ky = useOkapiKy();
   const callout = useContext(CalloutContext);
