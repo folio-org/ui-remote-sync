@@ -30,6 +30,7 @@
   "settings.lASERIntegration.lasersecret": "LAS:eR secret",
   "settings.lASERIntegration.lasertoken": "LAS:eR token",
   "settings.lASERIntegration.laserurl": "LAS:eR url",
+  "settings.lASERIntegration.lasersyncTitles": "Sync LASER Titles",
 
   "settings.settingsSection.secureMode": "Secure mode",
   "settings.secureMode.enabled": "Secure mode enabled",
