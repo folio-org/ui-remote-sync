@@ -5,7 +5,7 @@
     "prop.feedback.correlationId": "Correlation Id",
     "prop.feedback.caseIndicator": "Case",
     "prop.feedback.status": "Status",
-    "prop.feedback.description": "Description",
+    "prop.feedback.description": "Descrizione",
     "remote-sync.dashboard": "Dashboard",
     "remote-sync.kbdshortcuts": "Keyboard Shortcuts",
     "settings.settingsSection.lASERIntegration": "LAS:eR integration",
@@ -27,5 +27,6 @@
     "prop.sourceRecord.label": "Label",
     "prop.sourceRecord.sourceRecordId": "Source record id",
     "prop.sourceRecord.processControlStatus": "Process control status",
-    "prop.sourceRecord.transformationStatus": "Transformation status"
+    "prop.sourceRecord.transformationStatus": "Transformation status",
+    "settings.lASERIntegration.lasersyncTitles": "Sync LASER Titles"
 }
