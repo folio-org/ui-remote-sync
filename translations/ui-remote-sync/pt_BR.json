@@ -27,5 +27,6 @@
     "prop.sourceRecord.label": "Etiqueta",
     "prop.sourceRecord.sourceRecordId": "ID do registro fonte",
     "prop.sourceRecord.processControlStatus": "Status de controle de processo",
-    "prop.sourceRecord.transformationStatus": "Status de transformação"
+    "prop.sourceRecord.transformationStatus": "Status de transformação",
+    "settings.lASERIntegration.lasersyncTitles": "Sync LASER Titles"
 }

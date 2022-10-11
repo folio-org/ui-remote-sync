@@ -27,5 +27,6 @@
     "prop.sourceRecord.label": "标签",
     "prop.sourceRecord.sourceRecordId": "源记录ID",
     "prop.sourceRecord.processControlStatus": "过程控制状态",
-    "prop.sourceRecord.transformationStatus": "转换状态"
+    "prop.sourceRecord.transformationStatus": "转换状态",
+    "settings.lASERIntegration.lasersyncTitles": "Sync LASER Titles"
 }

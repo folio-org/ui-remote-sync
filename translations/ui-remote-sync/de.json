@@ -27,5 +27,6 @@
     "prop.sourceRecord.label": "Anzeigename",
     "prop.sourceRecord.sourceRecordId": "Quelldatensatz-ID",
     "prop.sourceRecord.processControlStatus": "Prozesssteuerungsstatus",
-    "prop.sourceRecord.transformationStatus": "Status der Transformation"
+    "prop.sourceRecord.transformationStatus": "Status der Transformation",
+    "settings.lASERIntegration.lasersyncTitles": "Sync LASER Titles"
 }
