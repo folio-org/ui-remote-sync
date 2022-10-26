@@ -28,5 +28,5 @@
     "prop.sourceRecord.sourceRecordId": "ID zdrojového záznamu",
     "prop.sourceRecord.processControlStatus": "Stav řízení procesu",
     "prop.sourceRecord.transformationStatus": "Stav transformace",
-    "settings.lASERIntegration.lasersyncTitles": "Sync LASER Titles"
+    "settings.lASERIntegration.lasersyncTitles": "Synchronizace názvů LASER"
 }
