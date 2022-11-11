@@ -102,3 +102,20 @@ dist
 
 # TernJS port file
 .tern-port
+
+## Idk what the above set are from, but the below ones correspond to ui-agreements' gitignore
+.DS_Store
+*.swp
+*.swo
+node_modules
+yarn.lock
+yarn-error.log
+ModuleDescriptor.json
+
+
+/.tern-project
+/.settings
+.project
+
+/artifacts
+junit.xml
