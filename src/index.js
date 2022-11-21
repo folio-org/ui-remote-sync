@@ -1,12 +1,16 @@
 import React, { Suspense } from 'react';
 import { Switch } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
+
 import { AppContextMenu, Route } from '@folio/stripes/core';
 import {
   NavList,
   NavListSection,
   NavListItem,
 } from '@folio/stripes/components';
+
+import { useIntlKeyStore } from '@k-int/stripes-kint-components';
+
 import RemoteSyncSummary from './components/RemoteSyncView/RemoteSyncSummary';
 import Settings from './settings';
 import ActionedRoute from './routes/ActionedRoute';
@@ -18,6 +22,9 @@ const App = (appProps) => {
     actAs,
     match: { path },
   } = appProps;
+
+  const addKey = useIntlKeyStore(state => state.addKey);
+  addKey('ui-remote-sync');
 
   if (actAs === 'settings') {
     return (
