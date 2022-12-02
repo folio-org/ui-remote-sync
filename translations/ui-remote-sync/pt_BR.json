@@ -28,5 +28,17 @@
     "prop.sourceRecord.sourceRecordId": "ID do registro fonte",
     "prop.sourceRecord.processControlStatus": "Status de controle de processo",
     "prop.sourceRecord.transformationStatus": "Status de transformação",
-    "settings.lASERIntegration.lasersyncTitles": "Sincronizar títulos de LASER"
+    "settings.lASERIntegration.lasersyncTitles": "Sincronizar títulos de LASER",
+    "found#Values": "{total} solicitações encontradas",
+    "appMenu.keyboardShortcuts": "Atalhos do teclado",
+    "edit": "Editar",
+    "delete": "Excluir",
+    "new": "Novo",
+    "actions": "Ações",
+    "yes": "Sim",
+    "no": "Não",
+    "settings.noCurrentValue": "Nenhum valor definido",
+    "settings.default": "Padrão",
+    "settings.name": "Nome",
+    "settings.value": "Valor"
 }
