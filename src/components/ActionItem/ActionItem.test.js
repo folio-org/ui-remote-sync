@@ -1,4 +1,3 @@
-import React from 'react';
 import { renderWithIntl } from '@folio/stripes-erm-testing';
 import ActionItem from './ActionItem';
 
