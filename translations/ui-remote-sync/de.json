@@ -27,5 +27,18 @@
     "prop.sourceRecord.label": "Anzeigename",
     "prop.sourceRecord.sourceRecordId": "Quelldatensatz-ID",
     "prop.sourceRecord.processControlStatus": "Prozesssteuerungsstatus",
-    "prop.sourceRecord.transformationStatus": "Status der Transformation"
+    "prop.sourceRecord.transformationStatus": "Status der Transformation",
+    "settings.lASERIntegration.lasersyncTitles": "LAS:eR-Titel abgleichen",
+    "found#Values": "Found {total} requests",
+    "appMenu.keyboardShortcuts": "Keyboards shortcuts",
+    "edit": "Edit",
+    "delete": "Delete",
+    "new": "New",
+    "actions": "Actions",
+    "yes": "Yes",
+    "no": "No",
+    "settings.noCurrentValue": "No value set",
+    "settings.default": "Default",
+    "settings.name": "Name",
+    "settings.value": "Value"
 }

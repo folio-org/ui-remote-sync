@@ -27,5 +27,18 @@
     "prop.sourceRecord.label": "Štítek",
     "prop.sourceRecord.sourceRecordId": "ID zdrojového záznamu",
     "prop.sourceRecord.processControlStatus": "Stav řízení procesu",
-    "prop.sourceRecord.transformationStatus": "Stav transformace"
+    "prop.sourceRecord.transformationStatus": "Stav transformace",
+    "settings.lASERIntegration.lasersyncTitles": "Synchronizace názvů LASER",
+    "found#Values": "Nalezeno {total} žádanek",
+    "appMenu.keyboardShortcuts": "Klávesové zkratky",
+    "edit": "Upravit",
+    "delete": "Smazat",
+    "new": "Nový",
+    "actions": "Akce",
+    "yes": "Ano",
+    "no": "Ne",
+    "settings.noCurrentValue": "Není nastavena žádná hodnota",
+    "settings.default": "Výchozí",
+    "settings.name": "Název",
+    "settings.value": "Hodnota"
 }

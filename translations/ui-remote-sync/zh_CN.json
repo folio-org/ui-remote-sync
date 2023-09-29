@@ -27,5 +27,18 @@
     "prop.sourceRecord.label": "标签",
     "prop.sourceRecord.sourceRecordId": "源记录ID",
     "prop.sourceRecord.processControlStatus": "过程控制状态",
-    "prop.sourceRecord.transformationStatus": "转换状态"
+    "prop.sourceRecord.transformationStatus": "转换状态",
+    "settings.lASERIntegration.lasersyncTitles": "同步LASER标题",
+    "found#Values": "找到{total}请求",
+    "appMenu.keyboardShortcuts": "键盘快捷键",
+    "edit": "编辑",
+    "delete": "删除",
+    "new": "新建",
+    "actions": "操作",
+    "yes": "是",
+    "no": "否",
+    "settings.noCurrentValue": "没有设定值",
+    "settings.default": "默认",
+    "settings.name": "名称",
+    "settings.value": "值"
 }

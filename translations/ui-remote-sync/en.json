@@ -1,6 +1,15 @@
 {
   "meta.title": "Remote Sync",
 
+  "found#Values": "Found {total} requests",
+  "appMenu.keyboardShortcuts": "Keyboards shortcuts",
+  "edit": "Edit",
+  "delete": "Delete",
+  "new": "New",
+  "actions": "Actions",
+  "yes": "Yes",
+  "no": "No",
+
   "remote-sync.summary": "Summary",
   "remote-sync.dashboard": "Dashboard",
 
@@ -22,6 +31,11 @@
   "prop.sourceRecord.processControlStatus": "Process control status",
   "prop.sourceRecord.transformationStatus": "Transformation status",
 
+  "settings.noCurrentValue": "No value set",
+  "settings.default": "Default",
+  "settings.name": "Name",
+  "settings.value": "Value",
+
   "settings.settingsSection.lASERIntegration": "LAS:eR integration",
   "settings.lASERIntegration.laserermFOLIOPass": "FOLIO password",
   "settings.lASERIntegration.laserermFOLIOUser": "FOLIO username",
@@ -30,6 +44,7 @@
   "settings.lASERIntegration.lasersecret": "LAS:eR secret",
   "settings.lASERIntegration.lasertoken": "LAS:eR token",
   "settings.lASERIntegration.laserurl": "LAS:eR url",
+  "settings.lASERIntegration.lasersyncTitles": "Sync LASER Titles",
 
   "settings.settingsSection.secureMode": "Secure mode",
   "settings.secureMode.enabled": "Secure mode enabled",

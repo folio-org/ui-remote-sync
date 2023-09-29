@@ -27,5 +27,18 @@
     "prop.sourceRecord.label": "تسمية",
     "prop.sourceRecord.sourceRecordId": "معرّف تسجيلة المصدر",
     "prop.sourceRecord.processControlStatus": "معالجة حالة التحكم",
-    "prop.sourceRecord.transformationStatus": "حالة التحويل"
+    "prop.sourceRecord.transformationStatus": "حالة التحويل",
+    "settings.lASERIntegration.lasersyncTitles": "Sync LASER Titles",
+    "found#Values": "Found {total} requests",
+    "appMenu.keyboardShortcuts": "Keyboards shortcuts",
+    "edit": "Edit",
+    "delete": "Delete",
+    "new": "New",
+    "actions": "Actions",
+    "yes": "Yes",
+    "no": "No",
+    "settings.noCurrentValue": "No value set",
+    "settings.default": "Default",
+    "settings.name": "Name",
+    "settings.value": "Value"
 }
