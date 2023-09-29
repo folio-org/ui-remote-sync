@@ -68,8 +68,6 @@ export default function RemoteSyncSummary() {
               </h3>
               Next Due: {extractor.nextDueString}
               <br />
-              Remaining: {extractor.timeRemaining}ms
-              <br />
             </div>
           );
         });
@@ -103,7 +101,6 @@ export default function RemoteSyncSummary() {
               enabled: {datarow.enabled ? 'true' : 'false'} <br />
               Record Count: {datarow.recordCount} <br />
               Next Due: {datarow.nextDueString} <br />
-              Remaining: {datarow.timeRemaining}ms <br />
             </div>
           </Col>
           <Col>{extractors}</Col>
