@@ -31,7 +31,7 @@
     "hasSettings": true,
     "queryResource": "query",
     "okapiInterfaces": {
-      "remote-sync": "1.0"
+      "remote-sync": "2.0"
     },
     "stripesDeps": [
       "@folio/stripes-erm-components",
