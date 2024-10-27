@@ -29,7 +29,7 @@
     "prop.sourceRecord.processControlStatus": "Status de controle de processo",
     "prop.sourceRecord.transformationStatus": "Status de transformação",
     "settings.lASERIntegration.lasersyncTitles": "Sincronizar títulos de LASER",
-    "found#Values": "{total} solicitações encontradas",
+    "found#Values": "{total} requisições encontradas",
     "appMenu.keyboardShortcuts": "Atalhos do teclado",
     "edit": "Editar",
     "delete": "Excluir",
