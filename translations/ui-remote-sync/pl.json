@@ -1,6 +1,6 @@
 {
     "meta.title": "Remote Sync",
-    "remote-sync.summary": "Summary",
+    "remote-sync.summary": "Podsumowanie",
     "prop.feedback.id": "ID",
     "prop.feedback.correlationId": "Correlation Id",
     "prop.feedback.caseIndicator": "Case",
