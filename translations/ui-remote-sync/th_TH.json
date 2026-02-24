@@ -4,7 +4,7 @@
     "prop.feedback.id": "ID",
     "prop.feedback.correlationId": "Correlation Id",
     "prop.feedback.caseIndicator": "Case",
-    "prop.feedback.status": "Status",
+    "prop.feedback.status": "สถานะ",
     "prop.feedback.description": "Description",
     "remote-sync.dashboard": "Dashboard",
     "remote-sync.kbdshortcuts": "Keyboard Shortcuts",

@@ -29,7 +29,7 @@
     "prop.sourceRecord.processControlStatus": "Статус управління процесом",
     "prop.sourceRecord.transformationStatus": "Статус трансформації",
     "settings.lASERIntegration.lasersyncTitles": "Синхронізація назв LASER",
-    "found#Values": "Знайдено {total} замовлень",
+    "found#Values": "Знайдено {total} замовлень (від користувача)",
     "appMenu.keyboardShortcuts": "\"Гарячі\" клавіші",
     "edit": "Редагувати",
     "delete": "Видалити",
