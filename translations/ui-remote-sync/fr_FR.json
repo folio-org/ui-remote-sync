@@ -24,10 +24,10 @@
     "recordList.actioned.title": "Actioned",
     "recordList.sourceRecords.title": "Source records",
     "prop.sourceRecord.id": "Id",
-    "prop.sourceRecord.label": "Label",
+    "prop.sourceRecord.label": "Intitulé",
     "prop.sourceRecord.sourceRecordId": "Source record id",
     "prop.sourceRecord.processControlStatus": "Process control status",
-    "prop.sourceRecord.transformationStatus": "Transformation status",
+    "prop.sourceRecord.transformationStatus": "État de la transformation",
     "settings.lASERIntegration.lasersyncTitles": "Sync LASER Titles",
     "found#Values": "{total} réservation(s) trouvée(s)",
     "appMenu.keyboardShortcuts": "Raccourcis clavier",
@@ -37,8 +37,8 @@
     "actions": "Actions",
     "yes": "Oui",
     "no": "Non",
-    "settings.noCurrentValue": "No value set",
-    "settings.default": "Default",
-    "settings.name": "Name",
-    "settings.value": "Value"
+    "settings.noCurrentValue": "Aucune valeur définie",
+    "settings.default": "Par défaut",
+    "settings.name": "Nom",
+    "settings.value": "Valeur"
 }
